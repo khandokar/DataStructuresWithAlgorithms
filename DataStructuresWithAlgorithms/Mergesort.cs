@@ -1,5 +1,8 @@
 ﻿namespace DataStructuresWithAlgorithms
 {
+
+  // Time Complexity O(nlogn).
+  // TODO: Need to read time complexity
   public class Mergesort
   {
     private void Merge(int[] arr, int start, int mid, int end)
