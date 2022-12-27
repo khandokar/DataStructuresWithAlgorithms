@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataStructuresWithAlgorithms
 {
+
+  // Time Complexity O(nlogn).
+  // TODO: Need to read time complexity
   public class Quicksort
   {
     /// <summary>

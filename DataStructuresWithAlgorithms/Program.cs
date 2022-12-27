@@ -15,14 +15,24 @@ namespace DataStructuresWithAlgorithms
       //Console.Write(a +" ");
 
 
-      int[] arr = { 500, 2, 9, 100, 3, 8, 6, 700 };
-      int arr_size = arr.Length;
+      //int[] arr = { 500, 2, 9, 100, 3, 8, 6, 700 };
+      //int arr_size = arr.Length;
 
-      Mergesort mergesort = new Mergesort();
-      mergesort.Sort(arr, 0, arr_size - 1);
+      //Mergesort mergesort = new Mergesort();
+      //mergesort.Sort(arr, 0, arr_size - 1);
 
-      foreach(int a in arr)
-      Console.Write(a +" ");
+      //foreach(int a in arr)
+      //Console.Write(a +" ");
+
+      MySingleLinkedList msllist = new MySingleLinkedList();
+      msllist.Insert(3);
+      msllist.Insert(2);
+      msllist.Insert(0);
+      msllist.Insert(-4);
+      msllist.MakeCycle(2);
+      bool hasCycle = msllist.HasCycle();
+      Console.WriteLine(hasCycle);
+
     }
   }
 }
