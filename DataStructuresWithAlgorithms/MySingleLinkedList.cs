@@ -289,21 +289,21 @@ namespace DataStructuresWithAlgorithms
       }
     }
 
-    public void MakeCycle(int nthElement)
+    public void MakeCycle(int pos)
     {
-      if (head == null || nthElement == 1)
+      if (head == null || pos == 0)
       {
         return;
       }
 
-      int i = 1;
+      int i = 0;
       Node cycleNode = null;
       Node currentNode = head;
       while (currentNode.next != null)
       {
         i++;
         currentNode = currentNode.next;
-        if(i == nthElement)
+        if(i == pos)
         {
           cycleNode = currentNode;
         }
@@ -318,6 +318,7 @@ namespace DataStructuresWithAlgorithms
       if (head == null) return false;
       Node slow = head;
       Node fast = head.next;
+      int pos = 0;
       while(fast != null && fast.next != null && slow != null)
       {
         if(fast == slow)
@@ -326,9 +327,11 @@ namespace DataStructuresWithAlgorithms
         }
         fast = fast.next.next;
         slow = slow.next;
+
       }
       return false;
     }
+    
     public void ShowRecursively()
     {
       PrintRecursively(head);
