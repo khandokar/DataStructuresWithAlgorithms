@@ -24,6 +24,14 @@ namespace DataStructuresWithAlgorithms
     Node head;
     private int length = 0;
 
+    public Node Head
+    {
+      get
+      {
+        return head;
+      }
+    }
+
     public int GetLength()
     {
       return length;
@@ -150,6 +158,88 @@ namespace DataStructuresWithAlgorithms
       {
         head = head.next == null ? null : head.next;
         length--;
+      }
+    }
+
+    public void DeleteDuplicates()
+    {
+      if (head == null) return;
+      Node currentNode = head;
+
+      while(currentNode != null && currentNode.next != null)
+      {
+        if (currentNode.data == currentNode.next.data)
+        {
+          currentNode.next = currentNode.next.next;
+        }
+        else
+        {
+          currentNode = currentNode.next;
+        }
+      }
+    }
+
+    public void DeleteDuplicates2()
+    {
+      if (head == null) return;
+      Node fakeHead = new Node(0);
+      fakeHead.next = head;
+      Node pre = fakeHead;
+      Node cur = head;
+      while (cur != null)
+      {
+        while (cur.next != null && cur.data == cur.next.data)
+        {
+          cur = cur.next;
+        }
+        if (pre.next == cur)
+        {
+          pre = pre.next;
+        }
+        else
+        {
+          pre.next = cur.next;
+        }
+        cur = cur.next;
+      }
+      head =  fakeHead.next;
+    }
+
+    public void AddTwoNumbers(Node nod1, Node node2)
+    {
+      Node firstHead = nod1;
+      Node secondHead = node2;
+      int total = 0;
+      int firstOperand = 0;
+      int secondOperand = 0;
+      int tempTotal = 0;
+      int reminder = 0;
+
+      while(firstHead != null || secondHead != null)
+      {
+        firstOperand = firstHead == null ? 0 : firstHead.data;
+        secondOperand = secondHead == null ? 0 : secondHead.data;
+
+        tempTotal = firstOperand + secondOperand + reminder;
+        reminder = 0;
+        if (tempTotal >= 10)
+        {
+          total = tempTotal % 10;
+          reminder = tempTotal / 10;
+        }
+        else
+        {
+          total = tempTotal;
+        }
+
+        firstHead = firstHead == null ? null : firstHead.next;
+        secondHead = secondHead == null ? null : secondHead.next;
+
+        Insert(total);
+      }
+      if(reminder > 0)
+      {
+        Insert(reminder);
       }
     }
 
@@ -291,13 +381,13 @@ namespace DataStructuresWithAlgorithms
 
     public void MakeCycle(int pos)
     {
-      if (head == null || pos == 0)
+      if (head == null || pos < 0)
       {
         return;
       }
 
       int i = 0;
-      Node cycleNode = null;
+      Node cycleNode = head;
       Node currentNode = head;
       while (currentNode.next != null)
       {
@@ -317,21 +407,52 @@ namespace DataStructuresWithAlgorithms
     {
       if (head == null) return false;
       Node slow = head;
-      Node fast = head.next;
-      int pos = 0;
-      while(fast != null && fast.next != null && slow != null)
+      Node fast = head;
+
+      while (fast != null && fast.next != null)
       {
-        if(fast == slow)
+        slow = slow.next;
+        fast = fast.next.next;
+        if (fast == slow)
         {
           return true;
         }
-        fast = fast.next.next;
-        slow = slow.next;
-
       }
       return false;
     }
-    
+
+    public Node DetectCycle()
+    {
+      if (head == null) return null;
+      Node slow = head;
+      Node fast = head;
+
+      bool found = false;
+      while (fast != null && fast.next != null)
+      {
+        slow = slow.next;
+        fast = fast.next.next;
+        if (fast == slow)
+        {
+          found = true;
+          break;
+        }    
+      }
+
+      slow = head;
+      if (found)
+      {
+        while(slow != fast)
+        {
+          slow = slow.next;
+          fast = fast.next;
+        }
+        return slow;
+      }
+
+      return null;
+    }
+
     public void ShowRecursively()
     {
       PrintRecursively(head);

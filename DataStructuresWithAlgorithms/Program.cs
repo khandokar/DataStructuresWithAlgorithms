@@ -1,4 +1,5 @@
 ﻿using System;
+using static DataStructuresWithAlgorithms.MySingleLinkedList;
 
 namespace DataStructuresWithAlgorithms
 {
@@ -25,14 +26,63 @@ namespace DataStructuresWithAlgorithms
       //Console.Write(a +" ");
 
       MySingleLinkedList msllist = new MySingleLinkedList();
-      msllist.Insert(3);
-      msllist.Insert(2);
-      msllist.Insert(0);
-      msllist.Insert(-4);
-      msllist.MakeCycle(2);
-      bool hasCycle = msllist.HasCycle();
-      Console.WriteLine(hasCycle);
+      //msllist.Insert(3);
+      //msllist.Insert(2);
+      //msllist.Insert(0);
+      //msllist.Insert(-4);
+      //msllist.MakeCycle(1);
+      //bool hasCycle = msllist.HasCycle();
+      //Node node = msllist.DetectCycle();
+      //Console.WriteLine(node == null ? "" : node.data);
 
+      //msllist.Insert(1);
+      //bool hasCycle = msllist.HasCycle();
+      //Console.WriteLine(hasCycle);
+      //Node node = msllist.DetectCycle();
+      //Console.WriteLine(node == null ? "" : node.data);
+
+      //msllist.Insert(1);
+      //msllist.Insert(2);
+      //msllist.MakeCycle(0);
+      //bool hasCycle = msllist.HasCycle();
+      //Node node = msllist.DetectCycle();
+
+
+      //msllist.Insert(2);
+      //msllist.Insert(2);
+      //msllist.Insert(2);
+      //msllist.Insert(3);
+      //msllist.Insert(4);
+      //msllist.DeleteDuplicates2();
+      //msllist.Show();
+
+      MySingleLinkedList msllist1 = new MySingleLinkedList();
+      msllist1.Insert(2);
+      msllist1.Insert(4);
+      msllist1.Insert(3);
+
+      MySingleLinkedList msllist2 = new MySingleLinkedList();
+      msllist2.Insert(5);
+      msllist2.Insert(6);
+      msllist2.Insert(4);
+
+      //MySingleLinkedList msllist1 = new MySingleLinkedList();
+      //msllist1.Insert(9);
+      //msllist1.Insert(9);
+      //msllist1.Insert(9);
+      //msllist1.Insert(9);
+      //msllist1.Insert(9);
+      //msllist1.Insert(9);
+      //msllist1.Insert(9);
+
+      //MySingleLinkedList msllist2 = new MySingleLinkedList();
+      //msllist2.Insert(9);
+      //msllist2.Insert(9);
+      //msllist2.Insert(9);
+      //msllist2.Insert(9);
+
+      msllist.AddTwoNumbers(msllist1.Head, msllist2.Head);
+      msllist.Show();
     }
   }
 }
