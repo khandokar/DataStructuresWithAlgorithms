@@ -56,15 +56,15 @@ namespace DataStructuresWithAlgorithms
       //msllist.DeleteDuplicates2();
       //msllist.Show();
 
-      MySingleLinkedList msllist1 = new MySingleLinkedList();
-      msllist1.Insert(2);
-      msllist1.Insert(4);
-      msllist1.Insert(3);
+      //MySingleLinkedList msllist1 = new MySingleLinkedList();
+      //msllist1.Insert(2);
+      //msllist1.Insert(4);
+      //msllist1.Insert(3);
 
-      MySingleLinkedList msllist2 = new MySingleLinkedList();
-      msllist2.Insert(5);
-      msllist2.Insert(6);
-      msllist2.Insert(4);
+      //MySingleLinkedList msllist2 = new MySingleLinkedList();
+      //msllist2.Insert(5);
+      //msllist2.Insert(6);
+      //msllist2.Insert(4);
 
       //MySingleLinkedList msllist1 = new MySingleLinkedList();
       //msllist1.Insert(9);
@@ -80,6 +80,12 @@ namespace DataStructuresWithAlgorithms
       //msllist2.Insert(9);
       //msllist2.Insert(9);
       //msllist2.Insert(9);
+
+      MySingleLinkedList msllist1 = new MySingleLinkedList();
+      msllist1.Insert(0);
+
+      MySingleLinkedList msllist2 = new MySingleLinkedList();
+      msllist2.Insert(0);
 
       msllist.AddTwoNumbers(msllist1.Head, msllist2.Head);
       msllist.Show();
