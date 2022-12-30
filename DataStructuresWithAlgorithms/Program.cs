@@ -25,7 +25,7 @@ namespace DataStructuresWithAlgorithms
       //foreach(int a in arr)
       //Console.Write(a +" ");
 
-      MySingleLinkedList msllist = new MySingleLinkedList();
+      //MySingleLinkedList msllist = new MySingleLinkedList();
       //msllist.Insert(3);
       //msllist.Insert(2);
       //msllist.Insert(0);
@@ -48,6 +48,7 @@ namespace DataStructuresWithAlgorithms
       //Node node = msllist.DetectCycle();
 
 
+      //MySingleLinkedList msllist = new MySingleLinkedList();
       //msllist.Insert(2);
       //msllist.Insert(2);
       //msllist.Insert(2);
@@ -81,14 +82,72 @@ namespace DataStructuresWithAlgorithms
       //msllist2.Insert(9);
       //msllist2.Insert(9);
 
-      MySingleLinkedList msllist1 = new MySingleLinkedList();
-      msllist1.Insert(0);
+      //MySingleLinkedList msllist1 = new MySingleLinkedList();
+      //msllist1.Insert(0);
+
+      //MySingleLinkedList msllist2 = new MySingleLinkedList();
+      //msllist2.Insert(0);
+
+      //msllist.AddTwoNumbers(msllist1.Head, msllist2.Head);
+      //msllist.Show();
+
+      /*
+      https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 
       MySingleLinkedList msllist2 = new MySingleLinkedList();
-      msllist2.Insert(0);
+      msllist2.Insert(1);
+      msllist2.Insert(2);
+      msllist2.Insert(3);
+      msllist2.Insert(4);
+      msllist2.Insert(5);
 
-      msllist.AddTwoNumbers(msllist1.Head, msllist2.Head);
-      msllist.Show();
+      msllist2.RemoveNthFromEnd(2);
+      msllist2.Show();
+
+      msllist2 = new MySingleLinkedList();
+      msllist2.Insert(1);
+      msllist2.Insert(2);
+
+      msllist2.RemoveNthFromEnd(1);
+      msllist2.Show();
+      */
+
+      /*
+      https://leetcode.com/problems/reverse-linked-list/
+
+      MySingleLinkedList msllist2 = new MySingleLinkedList();
+      msllist2.Insert(1);
+      msllist2.Insert(2);
+      msllist2.Insert(3);
+      msllist2.Insert(4);
+      msllist2.Insert(5);
+
+      msllist2.ReverseList();
+      msllist2.Show();
+
+      msllist2 = new MySingleLinkedList();
+      msllist2.Insert(1);
+      msllist2.Insert(2);
+
+      msllist2.ReverseList();
+      msllist2.Show();
+
+      */
+
+      MySingleLinkedList msllist1 = new MySingleLinkedList();
+      msllist1.Insert(1);
+      msllist1.Insert(2);
+      msllist1.Insert(4);
+
+      MySingleLinkedList msllist2 = new MySingleLinkedList();
+      msllist2.Insert(1);
+      msllist2.Insert(3);
+      msllist2.Insert(4);
+
+      MySingleLinkedList msllist = new MySingleLinkedList();
+      msllist.MergeTwoLists(msllist1.Head, msllist2.Head);
+      msllist2.Show();
+
     }
   }
 }

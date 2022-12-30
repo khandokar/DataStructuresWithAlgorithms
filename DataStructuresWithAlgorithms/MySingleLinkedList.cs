@@ -205,6 +205,31 @@ namespace DataStructuresWithAlgorithms
       head =  fakeHead.next;
     }
 
+    public void RemoveNthFromEnd(int n)
+    {
+      Node dummyHead = new Node(-1);
+      dummyHead.next = head;
+
+      Node slow = dummyHead;
+      Node fast = dummyHead;
+
+      for(int i = 1;i <= n+1; i++)
+      {
+        fast = fast.next;
+      }
+
+      while(fast != null)
+      {
+        slow = slow.next;
+        fast = fast.next;
+      }
+
+      slow.next = slow.next.next;
+
+      head = dummyHead.next;
+
+    }
+
     public void AddTwoNumbers(Node nod1, Node node2)
     {
       Node firstHead = nod1;
@@ -242,7 +267,7 @@ namespace DataStructuresWithAlgorithms
         Insert(reminder);
       }
     }
-
+    
     //public int length()
     //{
     //  int count = 0;
@@ -254,6 +279,21 @@ namespace DataStructuresWithAlgorithms
     //  }
     //  return count;
     //}
+
+    public void ReverseList()
+    {
+      Node pre = null;
+      while(head != null)
+      {
+        Node next = head.next;
+        head.next = pre;
+        pre = head;
+        head = next;
+      }
+
+      head = pre;
+
+    }
 
     public int LengthTortoiseHare()
     {
@@ -276,6 +316,41 @@ namespace DataStructuresWithAlgorithms
       {
         return count * 2 + 1;
       }
+    }
+
+    public void MergeTwoLists(Node list1, Node list2)
+    {
+      Node dumy = new Node(-1);
+      Node currentNode = dumy;
+
+      while(list1 != null && list2 != null)
+      {
+        if (list1.data < list2.data)
+        {
+          currentNode.next = list1;
+          list1 = list1.next;
+        }
+        else
+        {
+          currentNode.next = list2;
+          list2 = list2.next;
+        }
+        currentNode = currentNode.next;
+      }
+
+      if(list1 != null)
+      {
+        currentNode.next = list1;
+        list1 = list1.next;
+      }
+
+      if (list2 != null)
+      {
+        currentNode.next = list2;
+        list2 = list2.next;
+      }
+
+      head = dumy.next;
     }
 
     public bool Search(int key)
