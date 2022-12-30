@@ -292,7 +292,61 @@ namespace DataStructuresWithAlgorithms
       }
 
       head = pre;
+    }
 
+    public void ReorderList()
+    {
+      Node l1 = head;
+      Node pre = null;
+      Node slow = head;
+      Node fast = head;
+
+      while (fast != null && fast.next != null)
+      {
+        pre = slow;
+        slow = slow.next;
+        fast = fast.next.next;
+      }
+
+      pre.next = null;
+      pre = null;
+
+      while (slow != null)
+      {
+        Node next = slow.next;
+        slow.next = pre;
+        pre = slow;
+        slow = next;
+      }
+      slow = pre;
+
+      Node dumy = new Node(-1);
+      Node currentNode = dumy;
+
+      while (l1 != null && slow != null)
+      {
+        currentNode.next = l1;
+        l1 = l1.next;
+
+        currentNode.next.next = slow;
+        slow = slow.next;
+
+        currentNode = currentNode.next.next;
+      }
+
+      if (l1 != null)
+      {
+        currentNode.next = l1;
+        l1 = l1.next;
+      }
+
+      if (slow != null)
+      {
+        currentNode.next = slow;
+        slow = slow.next;
+      }
+
+      head = dumy.next;
     }
 
     public int LengthTortoiseHare()
