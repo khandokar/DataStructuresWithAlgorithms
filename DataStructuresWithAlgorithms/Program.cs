@@ -152,6 +152,7 @@ namespace DataStructuresWithAlgorithms
       msllist2.Show();
       */
 
+      /*
       MySingleLinkedList msllist = new MySingleLinkedList();
       msllist.Insert(1);
       msllist.Insert(2);
@@ -162,8 +163,21 @@ namespace DataStructuresWithAlgorithms
       msllist.ReorderList();
       msllist.Show();
 
-      
+      */
 
+      MySingleLinkedList msllist1 = new MySingleLinkedList();
+      msllist1.Insert(1);
+      msllist1.Insert(2);
+      msllist1.Insert(4);
+
+      MySingleLinkedList msllist2 = new MySingleLinkedList();
+      msllist2.Insert(1);
+      msllist2.Insert(3);
+      msllist2.Insert(4);
+
+      MySingleLinkedList msllist = new MySingleLinkedList();
+      msllist.MergeKLists(new Node[] { msllist1.Head, msllist2.Head});
+      msllist.Show();
     }
   }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DataStructuresWithAlgorithms.MySingleLinkedList;
 
 namespace DataStructuresWithAlgorithms
 {
@@ -405,6 +406,41 @@ namespace DataStructuresWithAlgorithms
       }
 
       head = dumy.next;
+    }
+
+    public void MergeKLists(Node[] lists)
+    {
+      Node current = null;
+
+      PriorityQueue<Node, int> pq = new PriorityQueue<Node, int>();
+
+      for (int i = 0; i < lists.Count(); i++)
+      {
+        if (lists[i] != null)
+        {
+          pq.Enqueue(lists[i], lists[i].data);
+        }
+      }
+
+      while (pq.TryDequeue(out Node queueItem, out int priority))
+      {
+        if (head == null)
+        {
+          head = queueItem;
+          current = queueItem;
+        }
+        else
+        {
+          current.next = queueItem;
+          current = current.next;
+        }
+
+        //add next List Node to priority queue
+        if (queueItem.next != null)
+        {
+          pq.Enqueue(queueItem.next, queueItem.next.data);
+        }
+      }
     }
 
     public bool Search(int key)
