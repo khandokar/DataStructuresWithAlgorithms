@@ -9,7 +9,7 @@ namespace DataStructuresWithAlgorithms
 
   // Time Complexity O(nlogn).
   // TODO: Need to read time complexity
-  public class Quicksort
+  public class QuickSort
   {
     /// <summary>
     /// 
@@ -19,7 +19,7 @@ namespace DataStructuresWithAlgorithms
     /// <param name="stop"></param>
     public void Sort(int[] arr, int start, int stop)
     {
-      int p = getMedianIndex(arr, start, stop); // swaps A[p] and A[stop]
+      int p = GetMedianIndex(arr, start, stop); // swaps A[p] and A[stop]
       Swap(arr, p, stop);    // swaps A[p] and A[stop]
       int i = start;
       int j = stop-1;
@@ -69,7 +69,7 @@ namespace DataStructuresWithAlgorithms
     /// <param name="start"></param>
     /// <param name="stop"></param>
     /// <returns></returns>
-    private int getMedianIndex(int[] arr, int start, int stop)
+    private int GetMedianIndex(int[] arr, int start, int stop)
     {
       int x = arr[start];
 

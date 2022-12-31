@@ -500,6 +500,7 @@ namespace DataStructuresWithAlgorithms
         temp.next = left;
         left = left.next;
         temp = temp.next;
+
       }
       // Take all nodes from right list if remaining
       while (right != null)
