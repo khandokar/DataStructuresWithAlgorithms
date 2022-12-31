@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -408,7 +409,7 @@ namespace DataStructuresWithAlgorithms
       head = dumy.next;
     }
 
-    public void MergeKLists(Node[] lists)
+    public Node MergeKListsPrority(Node[] lists)
     {
       Node current = null;
 
@@ -441,6 +442,75 @@ namespace DataStructuresWithAlgorithms
           pq.Enqueue(queueItem.next, queueItem.next.data);
         }
       }
+      return head;
+    }
+
+    public Node MergeKListsMerge(Node[] lists)
+    {
+      // Base condition
+      if (lists == null || lists.Count() == 0)
+      {
+        return null;
+      }
+      return MergeKLists(lists, 0, lists.Count() - 1);
+    }
+
+    private Node MergeKLists(Node[] lists, int start, int end)
+    {
+      if (start == end)
+      {
+        return lists[start];
+      }
+      // Mid of list of lists
+      int mid = start + (end - start) / 2;
+      // Recursive call for left sublist
+      Node left = MergeKLists(lists, start, mid);
+      // Recursive call for right sublist
+      Node right = MergeKLists(lists, mid + 1, end);
+      // Merge the left and right sublist
+      return Merge(left, right);
+    }
+
+    private Node Merge(Node left, Node right)
+    {
+      // Create a dummy node
+      Node dummy = new Node(-1);
+      // Temp node
+      Node temp = dummy;
+      // Loop until any of the list becomes null
+      while (left != null && right != null)
+      {
+        // Choose the value from the left and right which is smaller
+        if (left.data < right.data)
+        {
+          temp.next = left;
+          left = left.next;
+        }
+        else
+        {
+          temp.next = right;
+          right = right.next;
+        }
+        temp = temp.next;
+      }
+
+      // Take all nodes from left list if remaining
+      while (left != null)
+      {
+        temp.next = left;
+        left = left.next;
+        temp = temp.next;
+      }
+      // Take all nodes from right list if remaining
+      while (right != null)
+      {
+        temp.next = right;
+        right = right.next;
+        temp = temp.next;
+      }
+
+      head = dummy.next;
+      return dummy.next;
     }
 
     public bool Search(int key)

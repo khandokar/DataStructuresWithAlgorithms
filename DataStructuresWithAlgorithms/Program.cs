@@ -167,16 +167,20 @@ namespace DataStructuresWithAlgorithms
 
       MySingleLinkedList msllist1 = new MySingleLinkedList();
       msllist1.Insert(1);
-      msllist1.Insert(2);
       msllist1.Insert(4);
+      msllist1.Insert(5);
 
       MySingleLinkedList msllist2 = new MySingleLinkedList();
       msllist2.Insert(1);
       msllist2.Insert(3);
       msllist2.Insert(4);
 
+      MySingleLinkedList msllist3 = new MySingleLinkedList();
+      msllist3.Insert(2);
+      msllist3.Insert(6);
+
       MySingleLinkedList msllist = new MySingleLinkedList();
-      msllist.MergeKLists(new Node[] { msllist1.Head, msllist2.Head});
+      msllist.MergeKListsMerge(new Node[] { msllist1.Head, msllist2.Head, msllist3.Head});
       msllist.Show();
     }
   }
