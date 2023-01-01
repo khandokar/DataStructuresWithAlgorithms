@@ -50,7 +50,7 @@ namespace DataStructuresWithAlgorithms
     }
     
     /// <summary>
-    /// Swap 2 elements in an array
+    /// 
     /// </summary>
     /// <param name="a"></param>
     /// <param name="i"></param>

@@ -188,7 +188,20 @@ namespace DataStructuresWithAlgorithms
 
       */
 
+      /*
+      https://leetcode.com/problems/kth-largest-element-in-an-array/
 
+      MyArray marray = new MyArray();
+
+      int[] mArray = new int[] { 1, 5, 6, 9, 2 };
+      
+      int num = marray.FindKthLargest(mArray, 3);
+
+      QuickSelect qs = new QuickSelect();
+
+      num = qs.Select(mArray, 0, 4, 3);
+
+      */
 
     }
   }
