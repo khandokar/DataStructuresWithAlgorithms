@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using static DataStructuresWithAlgorithms.MySingleLinkedList;
 
@@ -202,6 +203,22 @@ namespace DataStructuresWithAlgorithms
       num = qs.Select(mArray, 0, 4, 3);
 
       */
+
+
+      //int[] mynum = new int[] { 100, 4, 200, 1, 3, 2 };
+      //int[] mynum = new int[] { 0, 3, 7, 2, 5, 8, 4, 6, 0, 1 };
+      //MyArray marray = new MyArray();
+      //int conNumb = marray.LongestConsecutive(mynum);
+
+      MyArray marray = new MyArray();
+      string s = "3[a]2[bc]";
+      s = "3[a2[c]]";   
+      string result = marray.DecodeString(s);
+
+      //int[] mynum = new int[] { 1,2,3,4 };
+      //mynum = new int[] { -1, 1, 0, -3, 3 };
+      //MyArray marray = new MyArray();
+      //int[] my = marray.ProductExceptSelf(mynum);
 
     }
   }
