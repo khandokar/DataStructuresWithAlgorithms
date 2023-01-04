@@ -210,7 +210,7 @@ namespace DataStructuresWithAlgorithms
       //MyArray marray = new MyArray();
       //int conNumb = marray.LongestConsecutive(mynum);
 
-      MyArray marray = new MyArray();
+      //MyArray marray = new MyArray();
       //string s = "3[a]2[bc]";
       //s = "3[a2[c]]";   
       //string result = marray.DecodeString(s);
@@ -220,13 +220,29 @@ namespace DataStructuresWithAlgorithms
       //MyArray marray = new MyArray();
       //int[] my = marray.ProductExceptSelf(mynum);
 
-      string[] s = new string[] {"eat","tea","tan","ate","nat","bat"};
-      var dd = marray.GroupAnagrams(s);
+      //string[] s = new string[] {"eat","tea","tan","ate","nat","bat"};
+      //var dd = marray.GroupAnagrams(s);
 
-      foreach(var a in dd)
-      {
-        Console.WriteLine(a.ToString());
-      }
+      //foreach(var a in dd)
+      //{
+      //  Console.WriteLine(a.ToString());
+      //}
+
+      //MyArray marray = new MyArray();
+      //int[] mynum = new int[] { 2, 7, 11, 15 };
+      //int target = 9;
+      //int[] result = marray.TwoSum(mynum, target);
+
+
+      //MyArray marray = new MyArray();
+      //string s = "anagram", t = "nagaram";
+
+      //bool b = marray.IsAnagram(s, t);
+
+      MyArray marray = new MyArray();
+      int[] nums = new int[] { 1, 2, 3, 1 };
+
+      bool resutl = marray.ContainsDuplicate(nums);
     }
   }
 }

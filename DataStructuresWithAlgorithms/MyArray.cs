@@ -123,6 +123,118 @@ namespace DataStructuresWithAlgorithms
     }
 
 
+    public bool ContainsDuplicate(int[] nums)
+    {
+      Array.Sort(nums);
+
+      for(int i = 0;i<nums.Length-1;i++)
+      {
+        if (nums[i]== nums[i+1])
+        {
+          return true;
+        }
+      }
+
+      return false;
+
+    }
+    public bool IsAnagram(string s, string t)
+    {
+      //if (s.Length != t.Length) return false;
+      //int[] ints= new int[26];
+      //for (int i = 0; i < s.Length; i++)
+      //{
+      //  ints[s[i] - 'a']++;
+      //  ints[t[i] - 'a']--;
+      //}
+
+      //for(int i = 0; i < ints.Length;i++)
+      //{
+      //  if (ints[i] != 0)
+      //  {
+      //    return false;
+      //  }
+      //}
+      //return true;
+
+      //What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+
+      if (s.Length != t.Length) return false;
+
+      Dictionary<char,int> dic1 = new Dictionary<char,int>();
+      Dictionary<char, int> dic2 = new Dictionary<char, int>();
+
+      for(int i = 0; i < s.Length;i++)
+      {
+        if(dic1.ContainsKey(s[i]))
+        {
+          dic1[s[i]]++;
+        }
+        else
+        {
+          dic1.Add(s[i], 1);
+        }
+
+        if (dic2.ContainsKey(t[i]))
+        {
+          dic2[t[i]]++;
+        }
+        else
+        {
+          dic2.Add(t[i], 1);
+        }
+      }
+
+      foreach(KeyValuePair<char,int> c in dic1)
+      {
+        if(c.Value != dic2[c.Key])
+        {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    /// <summary>
+    /// Time complexity is O(n).
+    /// </summary>
+    /// <param name="nums"></param>
+    /// <param name="target"></param>
+    /// <returns></returns>
+    /// <exception cref="Exception"></exception>
+    public int[] TwoSum(int[] nums, int target)
+    {
+      /*
+       * Time complexity is O(n^2)
+       * Time consuming for large array
+        for (int i = 0; i < nums.Length; i++)
+        {
+          int complement = target - nums[i];
+          for (int j = i + 1; j < nums.Length; j++)
+          {
+            if (nums[j] == target)
+            {
+              return new int[] { i, j };
+            }
+          }
+        }
+        throw new Exception("No Found");
+      */
+
+      Dictionary<int,int> result = new Dictionary<int,int>();
+      for (int i = 0; i < nums.Length; i++)
+      {
+        if (result.ContainsValue(target - nums[i]))
+        {
+          KeyValuePair<int,int> element =  result.First(v => v.Value == target - nums[i]);
+
+          return new int[] { element.Key ,i};
+        }
+        result.Add(i, nums[i]);
+      }
+      throw new Exception("No Found");
+    }
+
     /// <summary>
     /// Time Complexity is O(n)
     /// </summary>
@@ -159,7 +271,8 @@ namespace DataStructuresWithAlgorithms
        *  Array.Sort uses Merge/Quicksort so so it takes O(klogk) 
       char[] arr = str.ToCharArray();
       Array.Sort(arr);
-      return new string(arr);*/
+      return new string(arr);
+      */
 
       int[] map = new int[26];
 
