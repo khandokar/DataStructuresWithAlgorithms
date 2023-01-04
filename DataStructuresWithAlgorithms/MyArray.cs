@@ -122,6 +122,12 @@ namespace DataStructuresWithAlgorithms
       return result;
     }
 
+
+    /// <summary>
+    /// Time Complexity is O(n)
+    /// </summary>
+    /// <param name="str"></param>
+    /// <returns></returns>
     public List<List<string>> GroupAnagrams(string[] str)
     {
       Dictionary<string, List<string>> keyValuePairs = new Dictionary<string, List<string>>();
@@ -146,6 +152,15 @@ namespace DataStructuresWithAlgorithms
 
     private string GenerateKey(string str)
     {
+      /*
+       * Complexity is O(n*klogk)
+       *  n - Number of element in Str array
+       *  k - Number of character in a single string
+       *  Array.Sort uses Merge/Quicksort so so it takes O(klogk) 
+      char[] arr = str.ToCharArray();
+      Array.Sort(arr);
+      return new string(arr);*/
+
       int[] map = new int[26];
 
       char[] chars = str.ToCharArray();
@@ -166,11 +181,5 @@ namespace DataStructuresWithAlgorithms
       return stringBuilder.ToString();
     }
 
-    private string GenerateKey1(string str)
-    {
-      char[]  arr = str.ToCharArray();
-      Array.Sort(arr);
-      return new string(arr);
-    }
   }
 }
