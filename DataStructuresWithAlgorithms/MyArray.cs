@@ -56,7 +56,7 @@ namespace DataStructuresWithAlgorithms
       return longestSequenceLength;
     }
  
-    public String DecodeString(String str)
+    public string DecodeString(String str)
     {
       Stack<int> counts = new Stack<int>();
       Stack<String> result = new Stack<String>();
@@ -120,6 +120,57 @@ namespace DataStructuresWithAlgorithms
       }
 
       return result;
+    }
+
+    public List<List<string>> GroupAnagrams(string[] str)
+    {
+      Dictionary<string, List<string>> keyValuePairs = new Dictionary<string, List<string>>();
+
+      foreach(string s in str)
+      {
+        string key = GenerateKey(s);
+
+        if(keyValuePairs.ContainsKey(key))
+        {
+          keyValuePairs[key].Add(s);
+        }
+        else
+        {
+          List<string> list = new List<string>();
+          list.Add(s);
+          keyValuePairs.Add(key, list);
+        }
+      }
+      return keyValuePairs.Values.ToList();
+    }
+
+    private string GenerateKey(string str)
+    {
+      int[] map = new int[26];
+
+      char[] chars = str.ToCharArray();
+
+      foreach(char c in chars)
+      {
+        map[c - 'a']++;
+      }
+
+      StringBuilder stringBuilder = new StringBuilder();
+
+      foreach(int num in map)
+      {
+        stringBuilder.Append(num);
+        stringBuilder.Append("#");
+      }
+
+      return stringBuilder.ToString();
+    }
+
+    private string GenerateKey1(string str)
+    {
+      char[]  arr = str.ToCharArray();
+      Array.Sort(arr);
+      return new string(arr);
     }
   }
 }

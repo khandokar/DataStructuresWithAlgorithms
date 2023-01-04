@@ -211,15 +211,22 @@ namespace DataStructuresWithAlgorithms
       //int conNumb = marray.LongestConsecutive(mynum);
 
       MyArray marray = new MyArray();
-      string s = "3[a]2[bc]";
-      s = "3[a2[c]]";   
-      string result = marray.DecodeString(s);
+      //string s = "3[a]2[bc]";
+      //s = "3[a2[c]]";   
+      //string result = marray.DecodeString(s);
 
       //int[] mynum = new int[] { 1,2,3,4 };
       //mynum = new int[] { -1, 1, 0, -3, 3 };
       //MyArray marray = new MyArray();
       //int[] my = marray.ProductExceptSelf(mynum);
 
+      string[] s = new string[] {"eat","tea","tan","ate","nat","bat"};
+      var dd = marray.GroupAnagrams(s);
+
+      foreach(var a in dd)
+      {
+        Console.WriteLine(a.ToString());
+      }
     }
   }
 }
