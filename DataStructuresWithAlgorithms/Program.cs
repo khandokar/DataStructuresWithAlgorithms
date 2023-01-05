@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using static DataStructuresWithAlgorithms.MySingleLinkedList;
 
 namespace DataStructuresWithAlgorithms
@@ -239,10 +240,26 @@ namespace DataStructuresWithAlgorithms
 
       //bool b = marray.IsAnagram(s, t);
 
-      MyArray marray = new MyArray();
-      int[] nums = new int[] { 1, 2, 3, 1 };
+      //MyArray marray = new MyArray();
+      //int[] nums = new int[] { 1, 2, 3, 1 };
 
-      bool resutl = marray.ContainsDuplicate(nums);
+      //bool resutl = marray.ContainsDuplicate(nums);
+
+
+      BucketSort bucketSort = new BucketSort();
+
+      //float[] arr = { (float)0.897, (float)0.565, (float)0.656, (float)0.1234, (float)0.665, (float)0.3434 };
+
+      //bucketSort.Sort(arr, 10);
+
+      float[] arr1 = { (float).2, (float)1.2f, (float)3.2f, (float)7.4f, (float)2.3f, (float)5.6f, (float)8.3f, (float)4.7f, (float)6.3f, (float)7.2f, (float)1.1f, (float)40.2f, (float)50.1f, (float)39.1f };
+
+      bucketSort.Sort(arr1, 51);
+
+      //int[] arr2 = { 5, 10,12, 20, 25,25,26 };
+
+      //bucketSort.Sort(arr2, 27);
+
     }
   }
 }
