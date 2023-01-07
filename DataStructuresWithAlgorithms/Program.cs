@@ -264,11 +264,13 @@ namespace DataStructuresWithAlgorithms
 
       */
 
+      /*
       RadixSort radixSort = new RadixSort();
       //int[] arr = { 4982, 325, 5631, 8962, 5362, 5341, 7282};
       //int[] arr = { 48, 1, 6 ,23, 37, 19, 21 };
       int[] arr = {300, 215, 110, 115, 210, 315, 310, 200, 100 };
-      radixSort.Sort(arr, 310, 7);
+      radixSort.Sort(arr, 8962, 10);
+      */
     }
   }
 }
