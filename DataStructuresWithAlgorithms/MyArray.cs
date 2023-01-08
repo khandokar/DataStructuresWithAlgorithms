@@ -301,6 +301,28 @@ namespace DataStructuresWithAlgorithms
 
       return triplets;
     }
+    
+    public int MaxArea(int[] height)
+    {
+      int initialPointer = 0;
+      int lastPointer = height.Length - 1;
+      int maxArea = 0;
+      while(initialPointer < lastPointer)
+      {
+        if(height[initialPointer] < height[lastPointer])
+        {
+          maxArea = Math.Max(maxArea, (lastPointer-initialPointer) * height[initialPointer]);
+          initialPointer++;
+        }
+        else
+        {
+          maxArea = Math.Max(maxArea, (lastPointer - initialPointer) * height[lastPointer]);
+          lastPointer--;
+        }
+      }
+
+      return maxArea;
+    }
     private string GenerateKey(string str)
     {
       /*

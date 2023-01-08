@@ -272,6 +272,7 @@ namespace DataStructuresWithAlgorithms
       radixSort.Sort(arr, 8962, 10);
       */
 
+      /*
       MyArray marray = new MyArray();
       //int[] arry = { -1, 0, 1, 2, -1, -4 };
       //int[] arry = { 0, 1, 1 };
@@ -287,7 +288,15 @@ namespace DataStructuresWithAlgorithms
         }
         Console.Write("] ");
       }
-      
+      */
+
+      /*
+      MyArray marray = new MyArray();
+      //int[] arry = { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
+      int[] arry = { 1, 1 };
+      int maxArea = marray.MaxArea(arry);
+      Console.Write(maxArea.ToString());
+      */
 
     }
   }
