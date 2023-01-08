@@ -271,6 +271,24 @@ namespace DataStructuresWithAlgorithms
       int[] arr = {300, 215, 110, 115, 210, 315, 310, 200, 100 };
       radixSort.Sort(arr, 8962, 10);
       */
+
+      MyArray marray = new MyArray();
+      //int[] arry = { -1, 0, 1, 2, -1, -4 };
+      //int[] arry = { 0, 1, 1 };
+      int[] arry = { 0, 0, 0 };
+      IList<List<int>> ints =   marray.ThreeSum(arry);
+      foreach(var v in ints)
+      {
+        Console.Write("[");
+        foreach(var p in v)
+        {
+          Console.Write(p.ToString());
+          Console.Write(" ");
+        }
+        Console.Write("] ");
+      }
+      
+
     }
   }
 }

@@ -122,7 +122,6 @@ namespace DataStructuresWithAlgorithms
       return result;
     }
 
-
     public bool ContainsDuplicate(int[] nums)
     {
       Array.Sort(nums);
@@ -138,6 +137,7 @@ namespace DataStructuresWithAlgorithms
       return false;
 
     }
+    
     public bool IsAnagram(string s, string t)
     {
       //if (s.Length != t.Length) return false;
@@ -261,7 +261,46 @@ namespace DataStructuresWithAlgorithms
       }
       return keyValuePairs.Values.ToList();
     }
+    
+    public IList<List<int>> ThreeSum(int[] nums)
+    {
+      List<List<int>> triplets = new List<List<int>>();
 
+      Array.Sort(nums);
+
+      for(int i = 0 ; i < nums.Length; i++)
+      {
+        if (i > 0 && nums[i] == nums[i - 1])
+          continue;
+
+        int j = i + 1;
+        int k = nums.Length - 1;
+
+        while (j < k)
+        {
+          if (nums[i] + nums[j]+ nums[k] == 0)
+          {
+            triplets.Add(new List<int>() { nums[i], nums[j], nums[k] });
+            j++;
+
+            if (j < k && nums[j] == nums[j - 1])
+            {
+              j++;
+            }
+          }
+          else if(nums[i] + nums[j] + nums[k] < 0)
+          {
+            j++;
+          }
+          else
+          {
+            k--;
+          }
+        }
+      }
+
+      return triplets;
+    }
     private string GenerateKey(string str)
     {
       /*
