@@ -323,6 +323,34 @@ namespace DataStructuresWithAlgorithms
 
       return maxArea;
     }
+
+    public bool IsPalindrome(string s)
+    {
+      string newString = string.Empty;
+      foreach (char c in s)
+      {
+        if (char.IsLetter(c) || char.IsNumber(c))
+        {
+          newString += char.ToLower(c);
+        }
+      }
+
+      int initialPointer = 0;
+      int lastPointer = newString.Length - 1;
+
+      while(initialPointer<= lastPointer)
+      {
+        if (newString[initialPointer] != newString[lastPointer])
+        {
+          return false;
+        }
+        initialPointer++;
+        lastPointer--;
+      }
+
+      return true;
+    }
+
     private string GenerateKey(string str)
     {
       /*

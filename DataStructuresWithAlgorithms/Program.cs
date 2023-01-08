@@ -298,6 +298,15 @@ namespace DataStructuresWithAlgorithms
       Console.Write(maxArea.ToString());
       */
 
+      
+     MyArray marray = new MyArray();
+      //String s = "A man, a plan, a canal: Panama";
+      //String s = "race a car";
+      String s = " ";
+      bool isPalindrome = marray.IsPalindrome(s);
+     Console.Write(isPalindrome);
+     
+
     }
   }
 }
