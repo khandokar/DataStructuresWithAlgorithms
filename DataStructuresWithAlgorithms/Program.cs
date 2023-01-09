@@ -316,6 +316,13 @@ namespace DataStructuresWithAlgorithms
       int maxProfit = marray.MaxProfit(arry);
       Console.WriteLine(maxProfit);
       */
+
+      MyArray marray = new MyArray();
+      //String s = "abcabcbb";
+      //String s = "bbbbb";
+      String s = "pwwkew";
+      int length = marray.LengthOfLongestSubstring(s);
+      Console.WriteLine(length);
     }
   }
 }

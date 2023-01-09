@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -376,6 +377,30 @@ namespace DataStructuresWithAlgorithms
 
       return max_profit;
     }
+
+    public int LengthOfLongestSubstring(string s)
+    {
+      HashSet<string> set = new HashSet<string>();
+      int a_pointer = 0;
+      int b_pointer = 0;
+      int max = 0;
+      while(b_pointer < s.Length)
+      {
+        if(!set.Contains(s[b_pointer].ToString()))
+        {
+          set.Add(s[b_pointer].ToString());
+          max = Math.Max(max, set.Count);
+          b_pointer++;     
+        }
+        else
+        {
+          set.Remove(s[a_pointer].ToString());
+          a_pointer++;
+        }
+      }
+      return max;
+    }
+
     private string GenerateKey(string str)
     {
       /*
