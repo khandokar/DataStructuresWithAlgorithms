@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
@@ -317,12 +318,27 @@ namespace DataStructuresWithAlgorithms
       Console.WriteLine(maxProfit);
       */
 
+      /*
+       * https://leetcode.com/problems/longest-substring-without-repeating-characters/
+       * Sliding Window
       MyArray marray = new MyArray();
-      //String s = "abcabcbb";
+      String s = "abcabcbb";
       //String s = "bbbbb";
-      String s = "pwwkew";
+      //String s = "pwwkew";
       int length = marray.LengthOfLongestSubstring(s);
       Console.WriteLine(length);
+      */
+
+      /*
+       * https://leetcode.com/problems/longest-repeating-character-replacement/
+      MyArray marray = new MyArray();
+      string s = "ABAB";
+      int k = 2;
+      //string s = "AABABBA";
+      //int k = 2;
+      int length = marray.CharacterReplacement(s,k);
+      Console.WriteLine(length);
+      */
     }
   }
 }
