@@ -298,15 +298,24 @@ namespace DataStructuresWithAlgorithms
       Console.Write(maxArea.ToString());
       */
 
-      
-     MyArray marray = new MyArray();
-      //String s = "A man, a plan, a canal: Panama";
-      //String s = "race a car";
-      String s = " ";
-      bool isPalindrome = marray.IsPalindrome(s);
-     Console.Write(isPalindrome);
-     
+      /* 
+      MyArray marray = new MyArray();
+       //String s = "A man, a plan, a canal: Panama";
+       //String s = "race a car";
+       String s = " ";
+       bool isPalindrome = marray.IsPalindrome(s);
+      Console.Write(isPalindrome);
+      */
 
+      /*
+       * https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+       * Sliding Window
+      MyArray marray = new MyArray();
+      //int[] arry = { 7, 1, 5, 3, 6, 4 };
+      int[] arry = { 7, 6, 4, 3, 1 };
+      int maxProfit = marray.MaxProfit(arry);
+      Console.WriteLine(maxProfit);
+      */
     }
   }
 }
