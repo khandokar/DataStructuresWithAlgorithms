@@ -426,6 +426,7 @@ namespace DataStructuresWithAlgorithms
       }
       return max_length;
     }
+    
     private string GenerateKey(string str)
     {
       /*
