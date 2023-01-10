@@ -37,10 +37,10 @@ namespace DataStructuresWithAlgorithms
 
       int longestSequenceLength = 0;
 
-      for(int i = 0; i < nums.Length; i++)
+      for (int i = 0; i < nums.Length; i++)
       {
-         int current_Num = nums[i];
-         int current_sequence_length = 1;
+        int current_Num = nums[i];
+        int current_sequence_length = 1;
 
         if (!set.Contains(current_Num - 1))
         {
@@ -56,7 +56,7 @@ namespace DataStructuresWithAlgorithms
 
       return longestSequenceLength;
     }
- 
+
     public string DecodeString(String str)
     {
       Stack<int> counts = new Stack<int>();
@@ -67,26 +67,26 @@ namespace DataStructuresWithAlgorithms
       while (index < str.Length)
       {
         digit = 0;
-        if (Char.IsDigit(str,index))
+        if (Char.IsDigit(str, index))
         {
-          while(Char.IsDigit(str, index))
+          while (Char.IsDigit(str, index))
           {
             digit = digit * 10 + Convert.ToInt32(str[index].ToString());
             index++;
           }
-          counts.Push(digit); 
+          counts.Push(digit);
         }
-        else if(str[index].Equals('['))
+        else if (str[index].Equals('['))
         {
           result.Push(res);
           res = string.Empty;
           index++;
         }
-        else if(str[index].Equals(']'))
+        else if (str[index].Equals(']'))
         {
           StringBuilder sb = new StringBuilder(result.Pop());
           int count = counts.Pop();
-          for(int i = 0; i<count; i++)
+          for (int i = 0; i < count; i++)
           {
             sb.Append(res);
           }
@@ -108,13 +108,13 @@ namespace DataStructuresWithAlgorithms
       int[] result = new int[N];
       result[0] = 1;
 
-      for(int i=1; i<N; i++)
+      for (int i = 1; i < N; i++)
       {
-        result[i] = result[i-1] * nums[i-1];
+        result[i] = result[i - 1] * nums[i - 1];
       }
 
       int R = 1;
-      for(int i = N - 1; i >= 0; i--)
+      for (int i = N - 1; i >= 0; i--)
       {
         result[i] = result[i] * R;
         R = R * nums[i];
@@ -127,9 +127,9 @@ namespace DataStructuresWithAlgorithms
     {
       Array.Sort(nums);
 
-      for(int i = 0;i<nums.Length-1;i++)
+      for (int i = 0; i < nums.Length - 1; i++)
       {
-        if (nums[i]== nums[i+1])
+        if (nums[i] == nums[i + 1])
         {
           return true;
         }
@@ -138,7 +138,7 @@ namespace DataStructuresWithAlgorithms
       return false;
 
     }
-    
+
     public bool IsAnagram(string s, string t)
     {
       //if (s.Length != t.Length) return false;
@@ -162,12 +162,12 @@ namespace DataStructuresWithAlgorithms
 
       if (s.Length != t.Length) return false;
 
-      Dictionary<char,int> dic1 = new Dictionary<char,int>();
+      Dictionary<char, int> dic1 = new Dictionary<char, int>();
       Dictionary<char, int> dic2 = new Dictionary<char, int>();
 
-      for(int i = 0; i < s.Length;i++)
+      for (int i = 0; i < s.Length; i++)
       {
-        if(dic1.ContainsKey(s[i]))
+        if (dic1.ContainsKey(s[i]))
         {
           dic1[s[i]]++;
         }
@@ -186,9 +186,9 @@ namespace DataStructuresWithAlgorithms
         }
       }
 
-      foreach(KeyValuePair<char,int> c in dic1)
+      foreach (KeyValuePair<char, int> c in dic1)
       {
-        if(c.Value != dic2[c.Key])
+        if (c.Value != dic2[c.Key])
         {
           return false;
         }
@@ -222,14 +222,14 @@ namespace DataStructuresWithAlgorithms
         throw new Exception("No Found");
       */
 
-      Dictionary<int,int> result = new Dictionary<int,int>();
+      Dictionary<int, int> result = new Dictionary<int, int>();
       for (int i = 0; i < nums.Length; i++)
       {
         if (result.ContainsValue(target - nums[i]))
         {
-          KeyValuePair<int,int> element =  result.First(v => v.Value == target - nums[i]);
+          KeyValuePair<int, int> element = result.First(v => v.Value == target - nums[i]);
 
-          return new int[] { element.Key ,i};
+          return new int[] { element.Key, i };
         }
         result.Add(i, nums[i]);
       }
@@ -245,11 +245,11 @@ namespace DataStructuresWithAlgorithms
     {
       Dictionary<string, List<string>> keyValuePairs = new Dictionary<string, List<string>>();
 
-      foreach(string s in str)
+      foreach (string s in str)
       {
         string key = GenerateKey(s);
 
-        if(keyValuePairs.ContainsKey(key))
+        if (keyValuePairs.ContainsKey(key))
         {
           keyValuePairs[key].Add(s);
         }
@@ -262,14 +262,14 @@ namespace DataStructuresWithAlgorithms
       }
       return keyValuePairs.Values.ToList();
     }
-    
+
     public IList<List<int>> ThreeSum(int[] nums)
     {
       List<List<int>> triplets = new List<List<int>>();
 
       Array.Sort(nums);
 
-      for(int i = 0 ; i < nums.Length; i++)
+      for (int i = 0; i < nums.Length; i++)
       {
         if (i > 0 && nums[i] == nums[i - 1])
           continue;
@@ -279,7 +279,7 @@ namespace DataStructuresWithAlgorithms
 
         while (j < k)
         {
-          if (nums[i] + nums[j]+ nums[k] == 0)
+          if (nums[i] + nums[j] + nums[k] == 0)
           {
             triplets.Add(new List<int>() { nums[i], nums[j], nums[k] });
             j++;
@@ -289,7 +289,7 @@ namespace DataStructuresWithAlgorithms
               j++;
             }
           }
-          else if(nums[i] + nums[j] + nums[k] < 0)
+          else if (nums[i] + nums[j] + nums[k] < 0)
           {
             j++;
           }
@@ -302,17 +302,17 @@ namespace DataStructuresWithAlgorithms
 
       return triplets;
     }
-    
+
     public int MaxArea(int[] height)
     {
       int initialPointer = 0;
       int lastPointer = height.Length - 1;
       int maxArea = 0;
-      while(initialPointer < lastPointer)
+      while (initialPointer < lastPointer)
       {
-        if(height[initialPointer] < height[lastPointer])
+        if (height[initialPointer] < height[lastPointer])
         {
-          maxArea = Math.Max(maxArea, (lastPointer-initialPointer) * height[initialPointer]);
+          maxArea = Math.Max(maxArea, (lastPointer - initialPointer) * height[initialPointer]);
           initialPointer++;
         }
         else
@@ -339,7 +339,7 @@ namespace DataStructuresWithAlgorithms
       int initialPointer = 0;
       int lastPointer = newString.Length - 1;
 
-      while(initialPointer<= lastPointer)
+      while (initialPointer <= lastPointer)
       {
         if (newString[initialPointer] != newString[lastPointer])
         {
@@ -363,13 +363,13 @@ namespace DataStructuresWithAlgorithms
       int min_price = int.MaxValue;
       int max_profit = 0;
 
-      for(int i = 0; i< prices.Length; i++)
+      for (int i = 0; i < prices.Length; i++)
       {
         if (prices[i] < min_price)
         {
           min_price = prices[i];
         }
-        else if(prices[i]- min_price > max_profit)
+        else if (prices[i] - min_price > max_profit)
         {
           max_profit = prices[i] - min_price;
         }
@@ -384,13 +384,13 @@ namespace DataStructuresWithAlgorithms
       int a_pointer = 0;
       int b_pointer = 0;
       int max = 0;
-      while(b_pointer < s.Length)
+      while (b_pointer < s.Length)
       {
-        if(!set.Contains(s[b_pointer].ToString()))
+        if (!set.Contains(s[b_pointer].ToString()))
         {
           set.Add(s[b_pointer].ToString());
           max = Math.Max(max, set.Count);
-          b_pointer++;     
+          b_pointer++;
         }
         else
         {
@@ -410,13 +410,13 @@ namespace DataStructuresWithAlgorithms
       int max_length = 0;
       int max_count = 0;
 
-      for(int window_end = 0 ; window_end < N; window_end++)
+      for (int window_end = 0; window_end < N; window_end++)
       {
         char_counts[s[window_end] - 'A']++;
         int current_char_count = char_counts[s[window_end] - 'A'];
         max_count = Math.Max(max_count, current_char_count);
 
-        while(window_end - window_start - max_count + 1 > k)
+        while (window_end - window_start - max_count + 1 > k)
         {
           char_counts[s[window_start] - 'A']--;
           window_start++;
@@ -426,7 +426,73 @@ namespace DataStructuresWithAlgorithms
       }
       return max_length;
     }
-    
+
+    public string MinWindow(string s, string t)
+    {
+      if (t.Length > s.Length || s.Length < 1) return string.Empty;
+
+      string mwStr = string.Empty;
+      int mLength = int.MaxValue;
+      int startIndex = 0;
+      int endIndex = 0;
+
+      int window_start = 0;
+      int window_end = 0;
+
+      int need = 0;
+      int have = 0;
+
+      Dictionary<char, int> window = new Dictionary<char, int>();
+      Dictionary<char, int> tT = new Dictionary<char, int>();
+
+      foreach(char c in t)
+      {
+        tT.Add(c, 1);
+      }
+
+      need = tT.Count;
+
+      for(window_end = 0; window_end < s.Length; window_end++)
+      {
+        char c = s[window_end];
+        if (window.ContainsKey(c))
+        {
+          window[c] = window[c] + 1;
+        }
+        else
+        {
+          window.Add(c, 1);
+        }
+
+        if (tT.ContainsKey(c) && window[c] == tT[c])
+        {
+          have++;
+        }
+
+        while(have == need)
+        {
+          //Update our Result 
+          if (window_end - window_start + 1 < mLength)
+          {
+            startIndex = window_start;
+            endIndex = window_end;
+            mLength = window_end - window_start + 1;
+          }
+
+          //Pop from the left of our window
+          window[s[window_start]]--;
+          if(tT.ContainsKey(s[window_start]) && window[s[window_start]] < tT[s[window_start]])
+          {
+            have--;
+          }
+          window_start++;
+        }
+      }
+
+      mwStr = mLength < int.MaxValue ? s.Substring(startIndex, endIndex - startIndex + 1) : string.Empty;
+
+      return mwStr;
+    }
     private string GenerateKey(string str)
     {
       /*

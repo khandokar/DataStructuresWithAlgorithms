@@ -339,6 +339,17 @@ namespace DataStructuresWithAlgorithms
       int length = marray.CharacterReplacement(s,k);
       Console.WriteLine(length);
       */
+
+      /*
+       * https://leetcode.com/problems/minimum-window-substring/
+      MyArray marray = new MyArray();
+      string s = "ADOBECODEBANC";
+      string t = "ABC";
+      //string s = "a";
+      //string t = "aa";
+      string min = marray.MinWindow(s, t);
+      Console.WriteLine(min);
+      */
     }
   }
 }
