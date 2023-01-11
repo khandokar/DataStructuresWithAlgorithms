@@ -329,7 +329,8 @@ namespace DataStructuresWithAlgorithms
       Console.WriteLine(length);
       */
 
-      
+
+      /*
       // https://leetcode.com/problems/longest-repeating-character-replacement/
       MyArray marray = new MyArray();
       //string s = "ABAB";
@@ -338,7 +339,7 @@ namespace DataStructuresWithAlgorithms
       int k = 2;
       int length = marray.CharacterReplacement(s,k);
       Console.WriteLine(length);
-      
+      */
 
       /*
        * https://leetcode.com/problems/minimum-window-substring/
@@ -349,6 +350,15 @@ namespace DataStructuresWithAlgorithms
       //string t = "aa";
       string min = marray.MinWindow(s, t);
       Console.WriteLine(min);
+      */
+
+      /*
+       * https://leetcode.com/problems/valid-parentheses/
+       * 20. Valid Parentheses
+      MyString mystring = new MyString();
+      string s = "({[]})";
+      string s = "]{[]})";
+      bool valid = mystring.IsValid(ss);
       */
     }
   }
