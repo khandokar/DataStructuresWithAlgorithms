@@ -329,16 +329,16 @@ namespace DataStructuresWithAlgorithms
       Console.WriteLine(length);
       */
 
-      /*
-       * https://leetcode.com/problems/longest-repeating-character-replacement/
+      
+      // https://leetcode.com/problems/longest-repeating-character-replacement/
       MyArray marray = new MyArray();
-      string s = "ABAB";
-      int k = 2;
-      //string s = "AABABBA";
+      //string s = "ABAB";
       //int k = 2;
+      string s = "AABABBA";
+      int k = 2;
       int length = marray.CharacterReplacement(s,k);
       Console.WriteLine(length);
-      */
+      
 
       /*
        * https://leetcode.com/problems/minimum-window-substring/

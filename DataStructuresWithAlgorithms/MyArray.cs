@@ -437,9 +437,8 @@ namespace DataStructuresWithAlgorithms
       int endIndex = 0;
 
       int window_start = 0;
-      int window_end = 0;
 
-      int need = 0;
+      int need = t.Length;
       int have = 0;
 
       Dictionary<char, int> window = new Dictionary<char, int>();
@@ -450,9 +449,7 @@ namespace DataStructuresWithAlgorithms
         tT.Add(c, 1);
       }
 
-      need = tT.Count;
-
-      for(window_end = 0; window_end < s.Length; window_end++)
+      for(int window_end = 0; window_end < s.Length; window_end++)
       {
         char c = s[window_end];
         if (window.ContainsKey(c))
