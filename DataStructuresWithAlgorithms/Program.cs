@@ -360,6 +360,13 @@ namespace DataStructuresWithAlgorithms
       string s = "]{[]})";
       bool valid = mystring.IsValid(ss);
       */
+
+      BinarySearch bs = new BinarySearch();
+      int[] arr = { 2, 3, 4, 10, 40, 50, 51, 65};
+      int n = arr.Length;
+      int x = 10;
+
+      bs.Serach(arr, 0, n, x);
     }
   }
 }
