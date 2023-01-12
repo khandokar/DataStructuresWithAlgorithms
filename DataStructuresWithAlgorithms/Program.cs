@@ -361,12 +361,28 @@ namespace DataStructuresWithAlgorithms
       bool valid = mystring.IsValid(ss);
       */
 
+
+      /*
+       * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+       * 153. Find Minimum in Rotated Sorted Array
       BinarySearch bs = new BinarySearch();
       int[] arr = { 2, 3, 4, 10, 40, 50, 51, 65};
       int n = arr.Length;
       int x = 10;
+      int position =  bs.Search(arr, 0, n, x);
 
-      bs.Serach(arr, 0, n, x);
+      int[] nums = { 3, 4, 5, 1, 2 };
+      int min = bs.FindMin(nums);
+
+      int[] nums1 = { 6, 7, 0, 1, 2, 3, 4, 5 };
+      min = bs.FindMin(nums1);
+
+      int[] nums2 = { 4, 5, 6, 7, 0, 1, 2 };
+      min = bs.FindMin(nums2);
+
+      int[] nums3 = { 11, 13, 15, 17 };
+      min = bs.FindMin(nums3);
+      */
     }
   }
 }
