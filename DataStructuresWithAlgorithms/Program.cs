@@ -383,6 +383,15 @@ namespace DataStructuresWithAlgorithms
       int[] nums3 = { 11, 13, 15, 17 };
       min = bs.FindMin(nums3);
       */
+
+      /*
+       * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+       * 
+      BinarySearch bs = new BinarySearch();
+      int[] nums = { 4, 5, 6, 7, 0, 1, 2 };
+      int target = 3;
+      int position = bs.Search(nums, target);
+      */
     }
   }
 }
