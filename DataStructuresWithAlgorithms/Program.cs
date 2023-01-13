@@ -392,6 +392,18 @@ namespace DataStructuresWithAlgorithms
       int target = 3;
       int position = bs.Search(nums, target);
       */
+
+      MyBinarySearchTree bst = new MyBinarySearchTree();
+      bst.Insert(10);
+      bst.Insert(20); 
+      bst.Insert(30);
+      bst.Insert(5);
+      bst.Insert(2);
+      bst.PrintTree();
+
+      bst.Delete(2);
+      bst.PrintTree();
+
     }
   }
 }
