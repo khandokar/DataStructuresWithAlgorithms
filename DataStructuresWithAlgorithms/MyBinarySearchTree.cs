@@ -137,6 +137,7 @@ namespace DataStructuresWithAlgorithms
 
       return null;
     }
+   
     private int MinValue(BinaryNode node)
     {
       int minv = node.element;
