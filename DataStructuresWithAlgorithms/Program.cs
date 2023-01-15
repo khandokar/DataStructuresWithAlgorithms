@@ -401,7 +401,7 @@ namespace DataStructuresWithAlgorithms
       bst.Insert(2);
       bst.PrintTree();
 
-      bst.Delete(2);
+      bst.Remove(2);
       bst.PrintTree();
 
     }

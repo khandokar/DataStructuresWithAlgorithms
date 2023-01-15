@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace DataStructuresWithAlgorithms
 {
   public class MyBinarySearchTree
@@ -103,16 +102,19 @@ namespace DataStructuresWithAlgorithms
       else if (key > parent.element)
       {
         parent.right = Remove(parent.right, key);
-      }
-
-      // if value is same as parent's value, then this is the node to be deleted  
+      } 
       else
       {
+        // if value is same as parent's value, then this is the node to be deleted 
         // node with only one child or no child  
         if (parent.left == null)
+        {
           return parent.right;
+        }
         else if (parent.right == null)
+        {
           return parent.left;
+        }
 
         // node with two children: Get the inorder successor (smallest in the right subtree)  
         parent.element = MinValue(parent.right);
