@@ -6,6 +6,15 @@ namespace DataStructuresWithAlgorithms
   {
     /** The tree root. */
     private BinaryNode root;
+
+    public BinaryNode Root 
+    { 
+      get 
+      { 
+        return root; 
+      } 
+    }
+    
     public MyBinarySearchTree()
     {
       root = null;
@@ -90,6 +99,23 @@ namespace DataStructuresWithAlgorithms
     {
       return this.Find(value, this.root);
     }
+
+    public BinaryNode InvertTree(BinaryNode root)
+    {
+      if (root == null) return null;
+      BinaryNode n = root;
+
+      BinaryNode tmp = n.left;
+      n.left = n.right;
+      n.right = tmp;
+
+      n.left = InvertTree(n.left);
+      n.right = InvertTree(n.right);
+
+      return n;
+    }
+
+
 
     private BinaryNode Remove(BinaryNode parent, int key)
     {
