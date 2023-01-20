@@ -393,7 +393,7 @@ namespace DataStructuresWithAlgorithms
       int position = bs.Search(nums, target);
       */
 
-      //
+      /*
       MyBinarySearchTree bst = new MyBinarySearchTree();
       bst.Insert(4);
       bst.Insert(2); 
@@ -406,6 +406,15 @@ namespace DataStructuresWithAlgorithms
 
       BinaryNode b = bst.InvertTree(bst.Root);
       bst.PrintTree();
+      */
+
+      MyBinarySearchTree bst = new MyBinarySearchTree();
+      bst.Insert(3);
+      bst.Insert(1);
+      bst.Insert(20);
+      bst.Insert(15);
+      bst.Insert(7);
+      int depth = bst.MaxDepth(bst.Root);
     }
   }
 }

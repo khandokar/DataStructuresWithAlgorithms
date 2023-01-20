@@ -5,9 +5,9 @@ namespace DataStructuresWithAlgorithms
   public class MyBinarySearchTree
   {
     /** The tree root. */
-    private BinaryNode root;
+    private TreeNode root;
 
-    public BinaryNode Root 
+    public TreeNode Root 
     { 
       get 
       { 
@@ -37,14 +37,14 @@ namespace DataStructuresWithAlgorithms
       }
     }
 
-    private void PrintTree(BinaryNode t)
+    private void PrintTree(TreeNode t)
     {
       if (t != null)
       {
-        PrintTree(t.left);
-        Console.Write(t.element);
+        PrintTree(t.Left);
+        Console.Write(t.Val);
         Console.Write(" ");
-        PrintTree(t.right);
+        PrintTree(t.Right);
       }
     }
 
@@ -52,39 +52,39 @@ namespace DataStructuresWithAlgorithms
     {
       if (root == null)
       {
-        root = new BinaryNode(x, null, null);
+        root = new TreeNode(x, null, null);
         return;
       }
-      BinaryNode n = root;
+      TreeNode n = root;
       bool inserted = false;
       while (!inserted)
       {
-        if (x.CompareTo(n.element) < 0)
+        if (x.CompareTo(n.Val) < 0)
         {
-          //space found on the left
-          if (n.left == null)
+          //space found on the Left
+          if (n.Left == null)
           {
-            n.left = new BinaryNode(x, null, null);
+            n.Left = new TreeNode(x, null, null);
             inserted = true;
           }
           //keep looking
           else
           {
-            n = n.left;
+            n = n.Left;
           }
         }
-        else if (x.CompareTo(n.element) > 0)
+        else if (x.CompareTo(n.Val) > 0)
         {
-          //space found on the right
-          if (n.right == null)
+          //space found on the Right
+          if (n.Right == null)
           {
-            n.right = new BinaryNode(x, null, null);
+            n.Right = new TreeNode(x, null, null);
             inserted = true;
           }
           //keep looking
           else
           {
-            n = n.right;
+            n = n.Right;
           }
         }
       }
@@ -95,85 +95,89 @@ namespace DataStructuresWithAlgorithms
       this.root = Remove(this.root, value);
     }
 
-    public BinaryNode Find(int value)
+    public TreeNode Find(int value)
     {
       return this.Find(value, this.root);
     }
 
-    public BinaryNode InvertTree(BinaryNode root)
+    public TreeNode InvertTree(TreeNode root)
     {
       if (root == null) return null;
-      BinaryNode n = root;
+      TreeNode n = root;
 
-      BinaryNode tmp = n.left;
-      n.left = n.right;
-      n.right = tmp;
+      TreeNode tmp = n.Left;
+      n.Left = n.Right;
+      n.Right = tmp;
 
-      n.left = InvertTree(n.left);
-      n.right = InvertTree(n.right);
+      n.Left = InvertTree(n.Left);
+      n.Right = InvertTree(n.Right);
 
       return n;
     }
 
+    public int MaxDepth(TreeNode root)
+    {
+       if (root == null) return 0;
+       return 1 + Math.Max(MaxDepth(root.Left), MaxDepth(root.Right));
+    }
 
-
-    private BinaryNode Remove(BinaryNode parent, int key)
+    private TreeNode Remove(TreeNode parent, int key)
     {
       if (parent == null) return parent;
 
-      if (key < parent.element)
+      if (key < parent.Val)
       {
-        parent.left = Remove(parent.left, key);
+        parent.Left = Remove(parent.Left, key);
       }
-      else if (key > parent.element)
+      else if (key > parent.Val)
       {
-        parent.right = Remove(parent.right, key);
+        parent.Right = Remove(parent.Right, key);
       } 
       else
       {
         // if value is same as parent's value, then this is the node to be deleted 
         // node with only one child or no child  
-        if (parent.left == null)
+        if (parent.Left == null)
         {
-          return parent.right;
+          return parent.Right;
         }
-        else if (parent.right == null)
+        else if (parent.Right == null)
         {
-          return parent.left;
+          return parent.Left;
         }
 
-        // node with two children: Get the inorder successor (smallest in the right subtree)  
-        parent.element = MinValue(parent.right);
+        // node with two children: Get the inorder successor (smallest in the Right subtree)  
+        parent.Val = MinValue(parent.Right);
 
         // Delete the inorder successor  
-        parent.right = Remove(parent.right, parent.element);
+        parent.Right = Remove(parent.Right, parent.Val);
       }
 
       return parent;
     }
 
-    private BinaryNode Find(int value, BinaryNode parent)
+    private TreeNode Find(int value, TreeNode parent)
     {
       if (parent != null)
       {
-        if (value == parent.element) return parent;
-        if (value < parent.element)
-          return Find(value, parent.left);
+        if (value == parent.Val) return parent;
+        if (value < parent.Val)
+          return Find(value, parent.Left);
         else
-          return Find(value, parent.right);
+          return Find(value, parent.Right);
       }
 
       return null;
     }
    
-    private int MinValue(BinaryNode node)
+    private int MinValue(TreeNode node)
     {
-      int minv = node.element;
+      int minv = node.Val;
 
-      while (node.left != null)
+      while (node.Left != null)
       {
-        minv = node.left.element;
-        node = node.left;
+        minv = node.Left.Val;
+        node = node.Left;
       }
 
       return minv;
