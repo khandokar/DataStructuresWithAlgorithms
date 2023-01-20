@@ -394,6 +394,8 @@ namespace DataStructuresWithAlgorithms
       */
 
       /*
+       * 226. Invert Binary Tree
+       * https://leetcode.com/problems/invert-binary-tree/
       MyBinarySearchTree bst = new MyBinarySearchTree();
       bst.Insert(4);
       bst.Insert(2); 
@@ -408,13 +410,17 @@ namespace DataStructuresWithAlgorithms
       bst.PrintTree();
       */
 
-      MyBinarySearchTree bst = new MyBinarySearchTree();
+      /*
+       * 104. Maximum Depth of Binary Tree
+       * https://leetcode.com/problems/maximum-depth-of-binary-tree/
+      MyBinaryTree bst = new MyBinaryTree();
       bst.Insert(3);
-      bst.Insert(1);
+      bst.Insert(9);
       bst.Insert(20);
       bst.Insert(15);
       bst.Insert(7);
       int depth = bst.MaxDepth(bst.Root);
+      */
     }
   }
 }

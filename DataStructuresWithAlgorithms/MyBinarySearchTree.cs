@@ -114,13 +114,7 @@ namespace DataStructuresWithAlgorithms
 
       return n;
     }
-
-    public int MaxDepth(TreeNode root)
-    {
-       if (root == null) return 0;
-       return 1 + Math.Max(MaxDepth(root.Left), MaxDepth(root.Right));
-    }
-
+   
     private TreeNode Remove(TreeNode parent, int key)
     {
       if (parent == null) return parent;
