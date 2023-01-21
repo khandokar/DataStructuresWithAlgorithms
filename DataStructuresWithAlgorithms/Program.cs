@@ -427,6 +427,9 @@ namespace DataStructuresWithAlgorithms
       depth = bst.MaxDepthDFS(bst.Root);
       */
 
+      /*
+       * 100. Same Tree
+       * https://leetcode.com/problems/same-tree/
       MyBinaryTree bst1 = new MyBinaryTree();
       bst1.Insert(1);
       bst1.Insert(2);
@@ -437,6 +440,7 @@ namespace DataStructuresWithAlgorithms
       bst2.Insert(2);
 
       bool result = bst1.IsSameTree(bst1.Root, bst2.Root);
+      */
     }
   }
 }
