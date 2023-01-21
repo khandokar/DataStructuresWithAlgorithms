@@ -9,21 +9,21 @@ namespace DataStructuresWithAlgorithms
   public class TreeNode
   {
     // Constructors
-    public TreeNode(int val = 0)
+    public TreeNode(int? val = 0)
     {
       this.Val = val;
       this.Left = null;
       this.Left = null;
     }
 
-    public TreeNode(int val = 0, TreeNode left = null, TreeNode right = null)
+    public TreeNode(int? val = 0, TreeNode left = null, TreeNode right = null)
     {
       this.Val = val;
       this.Left = left;
       this.Left = right;
     }
 
-    public int Val;
+    public int? Val;
     public TreeNode Left;
     public TreeNode Right;
   }

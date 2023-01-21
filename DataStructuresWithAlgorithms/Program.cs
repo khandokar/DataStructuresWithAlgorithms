@@ -410,17 +410,18 @@ namespace DataStructuresWithAlgorithms
       bst.PrintTree();
       */
 
-      /*
-       * 104. Maximum Depth of Binary Tree
-       * https://leetcode.com/problems/maximum-depth-of-binary-tree/
+      
+       // 104. Maximum Depth of Binary Tree
+       // https://leetcode.com/problems/maximum-depth-of-binary-tree/
       MyBinaryTree bst = new MyBinaryTree();
       bst.Insert(3);
       bst.Insert(9);
+      bst.Insert(null);
       bst.Insert(20);
       bst.Insert(15);
       bst.Insert(7);
       int depth = bst.MaxDepth(bst.Root);
-      */
+
     }
   }
 }

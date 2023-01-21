@@ -21,13 +21,14 @@ namespace DataStructuresWithAlgorithms
       root = null;
     }
 
-    public void Insert(int key)
+    public void Insert(int? val)
     {
       if (root == null)
       {
-        root = new TreeNode(key);
+        root = new TreeNode(val);
         return;
       }
+
       Queue<TreeNode> q = new Queue<TreeNode>();
       q.Enqueue(root);
 
@@ -39,7 +40,7 @@ namespace DataStructuresWithAlgorithms
 
         if (temp.Left == null)
         {
-          temp.Left = new TreeNode(key);
+          temp.Left = new TreeNode(val);
           break;
         }
         else
@@ -49,12 +50,12 @@ namespace DataStructuresWithAlgorithms
 
         if (temp.Right == null)
         {
-          temp.Right = new TreeNode(key);
+          temp.Right = new TreeNode(val);
           break;
         }
         else
           q.Enqueue(temp.Right);
-      }
+      }    
     }
 
     public int MaxDepth(TreeNode root)

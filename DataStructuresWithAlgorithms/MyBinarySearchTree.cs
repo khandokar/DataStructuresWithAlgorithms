@@ -52,7 +52,7 @@ namespace DataStructuresWithAlgorithms
     {
       if (root == null)
       {
-        root = new TreeNode(x, null, null);
+        root = new TreeNode(x);
         return;
       }
       TreeNode n = root;
@@ -115,7 +115,7 @@ namespace DataStructuresWithAlgorithms
       return n;
     }
    
-    private TreeNode Remove(TreeNode parent, int key)
+    private TreeNode Remove(TreeNode parent, int? key)
     {
       if (parent == null) return parent;
 
@@ -164,9 +164,9 @@ namespace DataStructuresWithAlgorithms
       return null;
     }
    
-    private int MinValue(TreeNode node)
+    private int? MinValue(TreeNode node)
     {
-      int minv = node.Val;
+      int? minv = node.Val;
 
       while (node.Left != null)
       {
