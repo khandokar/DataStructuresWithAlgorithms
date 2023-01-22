@@ -118,45 +118,19 @@ namespace DataStructuresWithAlgorithms
     public bool IsSameTree(TreeNode p, TreeNode q)
     {
       if (p == null && q == null) return true;
-      if (p == null || q == null) return false;
+      if (p == null || q == null || p.Val != q.Val) return false;
 
-      Stack<TreeNode> stack = new Stack<TreeNode>();
-      stack.Push(p);
-      stack.Push(q);
+      return IsSameTree(p.Left,q.Left) && IsSameTree(p.Right, q.Right);
+    }
 
-      while (stack.Count != 0)
-      {
-        int count = stack.Count;
-        for (int i = 0; i < count / 2; i++)
-        {
-          TreeNode right = stack.Pop();
-          TreeNode left = stack.Pop();
+    public bool IsSubtree(TreeNode root, TreeNode subRoot)
+    {
+      if (subRoot == null) return true;
+      if (root == null) return false;
 
-          if (right.Val != left.Val) return false;
+      if(IsSameTree(root, subRoot)) return true;
 
-          if (right.Right != null && left.Right != null)
-          {
-            stack.Push(right.Right);
-            stack.Push(left.Right);
-          }
-          else if (right.Right == null ^ left.Right == null)
-          {
-            return false;
-          }
-
-          if (right.Left != null && left.Left != null)
-          {
-            stack.Push(right.Left);
-            stack.Push(left.Left);
-          }
-          else if (right.Left == null ^ left.Left == null)
-          {
-            return false;
-          }
-        }
-      }
-
-      return true;
+      return (IsSubtree(root.Left, subRoot) || IsSubtree(root.Right, subRoot));
     }
   }
 }
