@@ -137,6 +137,18 @@ namespace DataStructuresWithAlgorithms
             return null;
         }
 
+        public bool IsValidBST(TreeNode root)
+        {
+            return Valid(root, int.MinValue, int.MaxValue);
+        }
+
+        private bool Valid(TreeNode node, int? leftVal, int? rightVal)
+        {
+            if (node == null) return true; // Empty binary tree is a binary tree
+            if(!(node.Val < rightVal && node.Val > leftVal)) return false;
+            return Valid(node.Left, leftVal, node.Val) && Valid(node.Right, node.Val, rightVal);
+        }
+
         private TreeNode Remove(TreeNode parent, int? key)
         {
             if (parent == null) return parent;
