@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructuresWithAlgorithms
 {
@@ -140,6 +141,29 @@ namespace DataStructuresWithAlgorithms
         public bool IsValidBST(TreeNode root)
         {
             return Valid(root, int.MinValue, int.MaxValue);
+        }
+
+        public int KthSmallest(TreeNode root, int k)
+        {
+            int n = 0;
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+            TreeNode curr = root;
+            stack.Push(curr);
+
+            while (curr != null || stack.Count != 0)
+            {
+                while (curr != null)
+                {
+                    curr = curr.Left;
+                    if(curr != null)
+                    stack.Push(curr);
+                }
+                curr = stack.Pop();
+                n++;
+                if (n == k) return curr.Val.Value;
+                curr = curr.Right;
+            }
+            return -1;
         }
 
         private bool Valid(TreeNode node, int? leftVal, int? rightVal)

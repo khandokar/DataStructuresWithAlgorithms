@@ -520,6 +520,31 @@ namespace DataStructuresWithAlgorithms
             bst1.Root.Right.Right = new TreeNode(8);
             bool isValid = bst1.IsValidBST(bst1.Root);
             */
+
+            /*
+             * https://leetcode.com/problems/validate-binary-search-tree/
+             * 98. Validate Binary Search Tree
+            MyBinarySearchTree bst1 = new MyBinarySearchTree();
+            bst1.Insert(5);
+            bst1.Root.Left = new TreeNode(3);
+            bst1.Root.Right = new TreeNode(7);
+            //bst1.Root.Left.Left= new TreeNode(null);
+            //bst1.Root.Left.Right = new TreeNode(null);
+            bst1.Root.Right.Left = new TreeNode(4);
+            bst1.Root.Right.Right = new TreeNode(8);
+            bool isValid = bst1.IsValidBST(bst1.Root);
+            */
+
+            MyBinarySearchTree bst1 = new MyBinarySearchTree();
+            bst1.Insert(5);
+            bst1.Insert(3);
+            bst1.Insert(6);
+            bst1.Insert(2);
+            bst1.Insert(4);
+            //bst1.Insert(null);
+            //bst1.Insert(null);
+            bst1.Insert(1);
+            int value = bst1.KthSmallest(bst1.Root,3);
         }
     }
 }
