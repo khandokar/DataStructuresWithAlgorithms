@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 namespace DataStructuresWithAlgorithms
 {
@@ -117,6 +118,30 @@ namespace DataStructuresWithAlgorithms
                 {
                     node = t.Right;
                 }
+            }
+        }
+
+        public void PrintTreePostOrderUsingRecursion()
+        {
+            if (root == null)
+            {
+                Console.WriteLine("Empty tree");
+            }
+            else
+            {
+                PrintTreePostOrderUsingRecursion(root);
+                Console.WriteLine("\n");
+            }
+        }
+
+        private void PrintTreePostOrderUsingRecursion(TreeNode node)
+        {
+            if(node != null)
+            {
+                PrintTreePostOrderUsingRecursion(node.Left);
+                PrintTreePostOrderUsingRecursion(node.Right);
+                Console.Write(node.Val);
+                Console.Write(" ");
             }
         }
 
