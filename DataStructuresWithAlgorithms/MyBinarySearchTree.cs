@@ -24,9 +24,10 @@ namespace DataStructuresWithAlgorithms
 
         /**
         * Prints the values in the nodes of the tree
-        * in sorted order.
-*/
-        public void PrintTree()
+        * using in order traverse sorted order.
+        * <left SubTree><Root><Right SubTree>
+        */
+        public void PrintTreeInOrderUsingRecusive()
         {
             if (root == null)
             {
@@ -34,19 +35,41 @@ namespace DataStructuresWithAlgorithms
             }
             else
             {
-                PrintTree(root);
+                PrintTreeInOrderUsingRecusive(root);
                 Console.WriteLine("\n");
             }
         }
 
-        private void PrintTree(TreeNode t)
+        private void PrintTreeInOrderUsingRecusive(TreeNode t)
         {
             if (t != null)
             {
-                PrintTree(t.Left);
+                PrintTreeInOrderUsingRecusive(t.Left);
                 Console.Write(t.Val);
                 Console.Write(" ");
-                PrintTree(t.Right);
+                PrintTreeInOrderUsingRecusive(t.Right);
+            }
+        }
+
+        public void PrintTreeInOrderWithoutRecusion()
+        {
+            TreeNode node = root;
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+
+            while (node != null || stack.Count > 0)
+            {
+                while(node != null)
+                {
+                    stack.Push(node);
+                    node = node.Left;
+                }
+                TreeNode t = stack.Pop();
+                Console.Write(t.Val);
+                Console.Write(" ");
+                if (t.Right != null)
+                {
+                    node = t.Right;
+                }
             }
         }
 
