@@ -73,6 +73,30 @@ namespace DataStructuresWithAlgorithms
             }
         }
 
+        public void PrintTreePreOrderUsingRecusive()
+        {
+            if(root == null)
+            {
+                Console.WriteLine("Empty tree");
+            }
+            else
+            {
+                PrintTreePreOrderUsingRecusive(root);
+                Console.WriteLine("\n");
+            }
+        }
+
+        private void PrintTreePreOrderUsingRecusive(TreeNode node)
+        {
+            if (node != null)
+            {
+                Console.Write(node.Val);
+                Console.Write(" ");
+                PrintTreePreOrderUsingRecusive(node.Left);
+                PrintTreePreOrderUsingRecusive(node.Right);
+            }
+        }
+
         public void Insert(int? x)
         {
             if (root == null)

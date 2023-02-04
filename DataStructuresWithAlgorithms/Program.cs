@@ -547,17 +547,24 @@ namespace DataStructuresWithAlgorithms
             //int value = bst1.KthSmallest(bst1.Root,3);
 
             MyBinarySearchTree bst1 = new MyBinarySearchTree();
-            bst1.Insert(30);
+            bst1.Insert(25);
             bst1.Insert(15);
-            bst1.Insert(60);
-            bst1.Insert(7);
+            bst1.Insert(50);
+            bst1.Insert(10);
             bst1.Insert(22);
-            bst1.Insert(45);
-            bst1.Insert(75);
-            bst1.Insert(17);
-            bst1.Insert(27);
-            bst1.PrintTreeInOrderUsingRecusive();
-            bst1.PrintTreeInOrderWithoutRecusion();
+            bst1.Insert(35);
+            bst1.Insert(70);
+            bst1.Insert(4);
+            bst1.Insert(12);
+            bst1.Insert(18);
+            bst1.Insert(24);
+            bst1.Insert(31);
+            bst1.Insert(44);
+            bst1.Insert(66);
+            bst1.Insert(90);
+            //bst1.PrintTreeInOrderUsingRecusive();
+            //bst1.PrintTreeInOrderWithoutRecusion();
+            bst1.PrintTreePreOrderUsingRecusive();
         }
     }
 }
