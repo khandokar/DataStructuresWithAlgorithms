@@ -96,6 +96,29 @@ namespace DataStructuresWithAlgorithms
                 PrintTreePreOrderUsingRecusive(node.Right);
             }
         }
+        
+        public void PrintTreePreOrderWithoutRecusion()
+        {
+            TreeNode node = root;
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+
+            while (node != null || stack.Count > 0)
+            {
+                while (node != null)
+                {
+                    Console.Write(node.Val);
+                    Console.Write(" ");
+
+                    stack.Push(node);
+                    node = node.Left;
+                }
+                TreeNode t = stack.Pop();
+                if (t.Right != null)
+                {
+                    node = t.Right;
+                }
+            }
+        }
 
         public void Insert(int? x)
         {
