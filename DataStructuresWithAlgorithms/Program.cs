@@ -546,6 +546,7 @@ namespace DataStructuresWithAlgorithms
             //bst1.Insert(1);
             //int value = bst1.KthSmallest(bst1.Root,3);
 
+            /*
             MyBinarySearchTree bst1 = new MyBinarySearchTree();
             bst1.Insert(25);
             bst1.Insert(15);
@@ -568,6 +569,23 @@ namespace DataStructuresWithAlgorithms
             //bst1.PrintTreePreOrderWithoutRecusion();
             //bst1.PrintTreePostOrderUsingRecursion();
             bst1.PrintTreePostOrderWithoutRecursion();
+            */
+
+            //MyBinaryTree bt1 = new MyBinaryTree();
+
+            //int[] preorder = { 3, 9, 20, 15, 7 };
+            //int[] inorder = { 9, 3, 15, 20, 7 };
+
+            //TreeNode t = bt1.BuildTree(preorder, inorder);
+
+            MyBinaryTree bt1 = new MyBinaryTree();
+            bt1.Insert(-10);
+            bt1.Root.Left = new TreeNode(9);
+            bt1.Root.Right = new TreeNode(20);
+            bt1.Root.Right.Left = new TreeNode(15);
+            bt1.Root.Right.Right = new TreeNode(7);
+
+            int max = bt1.MaxPathSum(bt1.Root);
         }
     }
 }

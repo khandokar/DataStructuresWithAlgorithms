@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace DataStructuresWithAlgorithms
 {
@@ -7,6 +8,7 @@ namespace DataStructuresWithAlgorithms
     {
         /** The tree root. */
         private TreeNode root;
+        int maxPathSum;
 
         public TreeNode Root
         {
@@ -166,5 +168,37 @@ namespace DataStructuresWithAlgorithms
 
             return od;
         }
+
+        public TreeNode BuildTree(int[] preorder, int[] inorder)
+        {
+            if (preorder == null || inorder == null) return null;
+            if (preorder.Length == 0 || inorder.Length == 0) return null;
+
+            TreeNode root = new TreeNode(preorder[0]);
+            int indexOfMid = Array.IndexOf(inorder, preorder[0]);
+
+            root.Left = BuildTree(preorder.Take(new Range(1, indexOfMid + 1)).ToArray(), inorder.Take(new Range(0, indexOfMid)).ToArray());
+            root.Right = BuildTree(preorder.Take(new Range(indexOfMid + 1, preorder.Length)).ToArray(), inorder.Take(new Range(indexOfMid + 1, preorder.Length)).ToArray());
+
+            return root;
+
+        }
+
+        public int MaxPathSum(TreeNode root)
+        {
+            maxPathSum = int.MinValue;
+            PathSum(root);
+            return maxPathSum;
+        }
+
+        private int PathSum(TreeNode t)
+        {
+            if(t == null) return 0;
+            int left = Math.Max(0, PathSum(t.Left));
+            int right = Math.Max(0, PathSum(t.Right));
+            maxPathSum = Math.Max(maxPathSum, left + right + (t.Val.HasValue ? t.Val.Value : 0));
+            return Math.Max(left, right) + (t.Val.HasValue ? t.Val.Value : 0);
+        }
+
     }
 }
