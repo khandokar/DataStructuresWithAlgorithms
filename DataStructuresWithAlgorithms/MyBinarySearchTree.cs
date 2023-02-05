@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using static DataStructuresWithAlgorithms.MySingleLinkedList;
 
 namespace DataStructuresWithAlgorithms
 {
@@ -131,6 +133,37 @@ namespace DataStructuresWithAlgorithms
             {
                 PrintTreePostOrderUsingRecursion(root);
                 Console.WriteLine("\n");
+            }
+        }
+
+        public void PrintTreePostOrderWithoutRecursion()
+        {
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+
+            stack.Push(root);
+
+            while (stack.Count > 0)
+            {
+               TreeNode top = stack.Peek();
+                if(top.Left == null && top.Right == null)
+                {
+                    Console.Write(top.Val);
+                    Console.Write(" ");
+                    stack.Pop();
+                }
+                else
+                {
+                    if(top.Right != null)
+                    {
+                        stack.Push(top.Right);
+                        top.Right = null;
+                    }
+                    if (top.Left != null)
+                    {
+                        stack.Push(top.Left);
+                        top.Left = null;
+                    }
+                }
             }
         }
 

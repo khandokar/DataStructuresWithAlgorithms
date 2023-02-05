@@ -566,7 +566,8 @@ namespace DataStructuresWithAlgorithms
             //bst1.PrintTreeInOrderWithoutRecusion();
             //bst1.PrintTreePreOrderUsingRecusive();
             //bst1.PrintTreePreOrderWithoutRecusion();
-            bst1.PrintTreePostOrderUsingRecursion();
+            //bst1.PrintTreePostOrderUsingRecursion();
+            bst1.PrintTreePostOrderWithoutRecursion();
         }
     }
 }
