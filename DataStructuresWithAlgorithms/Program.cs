@@ -587,14 +587,22 @@ namespace DataStructuresWithAlgorithms
 
             //int max = bt1.MaxPathSum(bt1.Root);
 
-            MyBinaryTree bt1 = new MyBinaryTree();
-            bt1.Insert(1);
-            bt1.Root.Left = new TreeNode(2);
-            bt1.Root.Right = new TreeNode(3);
-            bt1.Root.Right.Left = new TreeNode(4);
-            bt1.Root.Right.Right = new TreeNode(5);
-            string hola = bt1.Serialize(bt1.Root);
-            TreeNode t = bt1.Deserialize(hola);
+            //MyBinaryTree bt1 = new MyBinaryTree();
+            //bt1.Insert(1);
+            //bt1.Root.Left = new TreeNode(2);
+            //bt1.Root.Right = new TreeNode(3);
+            //bt1.Root.Right.Left = new TreeNode(4);
+            //bt1.Root.Right.Right = new TreeNode(5);
+            //string hola = bt1.Serialize(bt1.Root);
+            //TreeNode t = bt1.Deserialize(hola);
+
+            Trie t = new Trie();
+            t.Insert("apple");
+            t.Insert("le");
+
+            bool exist = t.Search("le");
+
+            bool exist1 = t.StartsWith("lep");
         }
     }
 }
