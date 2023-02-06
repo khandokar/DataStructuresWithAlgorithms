@@ -578,14 +578,23 @@ namespace DataStructuresWithAlgorithms
 
             //TreeNode t = bt1.BuildTree(preorder, inorder);
 
-            MyBinaryTree bt1 = new MyBinaryTree();
-            bt1.Insert(-10);
-            bt1.Root.Left = new TreeNode(9);
-            bt1.Root.Right = new TreeNode(20);
-            bt1.Root.Right.Left = new TreeNode(15);
-            bt1.Root.Right.Right = new TreeNode(7);
+            //MyBinaryTree bt1 = new MyBinaryTree();
+            //bt1.Insert(-10);
+            //bt1.Root.Left = new TreeNode(9);
+            //bt1.Root.Right = new TreeNode(20);
+            //bt1.Root.Right.Left = new TreeNode(15);
+            //bt1.Root.Right.Right = new TreeNode(7);
 
-            int max = bt1.MaxPathSum(bt1.Root);
+            //int max = bt1.MaxPathSum(bt1.Root);
+
+            MyBinaryTree bt1 = new MyBinaryTree();
+            bt1.Insert(1);
+            bt1.Root.Left = new TreeNode(2);
+            bt1.Root.Right = new TreeNode(3);
+            bt1.Root.Right.Left = new TreeNode(4);
+            bt1.Root.Right.Right = new TreeNode(5);
+            string hola = bt1.Serialize(bt1.Root);
+            TreeNode t = bt1.Deserialize(hola);
         }
     }
 }

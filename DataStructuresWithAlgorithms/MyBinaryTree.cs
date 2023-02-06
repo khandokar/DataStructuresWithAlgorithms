@@ -8,7 +8,9 @@ namespace DataStructuresWithAlgorithms
     {
         /** The tree root. */
         private TreeNode root;
-        int maxPathSum;
+        private int maxPathSum;
+        private List<string> data;
+        private int i;
 
         public TreeNode Root
         {
@@ -191,6 +193,49 @@ namespace DataStructuresWithAlgorithms
             return maxPathSum;
         }
 
+        public string Serialize(TreeNode root)
+        {
+            data = new List<string>();
+            PreOrder(root);
+            return String.Join(",", data);
+        }
+
+        public TreeNode Deserialize(string d)
+        {
+            data = d.Split(",").ToList<string>();
+            i = 0;
+            return DoDeserialize();
+        }
+
+        private TreeNode DoDeserialize()
+        {
+            if(data[i] == "N")
+            {
+                i++;
+                return null;
+            }
+            TreeNode t = new TreeNode(Convert.ToInt32(data[i]));
+            i++;
+            t.Left = DoDeserialize();
+            t.Right = DoDeserialize();
+            return t;
+        }
+
+        private void PreOrder(TreeNode t)
+        {
+            if (t == null)
+            {
+                data.Add("N");
+                return;
+            }
+            else
+            {
+                data.Add(t.Val.Value.ToString());
+                PreOrder(t.Left);
+                PreOrder(t.Right);
+            }
+        }
+
         private int PathSum(TreeNode t)
         {
             if(t == null) return 0;
@@ -199,6 +244,5 @@ namespace DataStructuresWithAlgorithms
             maxPathSum = Math.Max(maxPathSum, left + right + (t.Val.HasValue ? t.Val.Value : 0));
             return Math.Max(left, right) + (t.Val.HasValue ? t.Val.Value : 0);
         }
-
     }
 }
