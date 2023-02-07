@@ -596,13 +596,17 @@ namespace DataStructuresWithAlgorithms
             //string hola = bt1.Serialize(bt1.Root);
             //TreeNode t = bt1.Deserialize(hola);
 
-            Trie t = new Trie();
-            t.Insert("apple");
-            t.Insert("le");
+            //Trie t = new Trie();
+            //t.Insert("apple");
+            //t.Insert("le");
 
-            bool exist = t.Search("le");
+            //bool exist = t.Search("le");
 
-            bool exist1 = t.StartsWith("lep");
+            //bool exist1 = t.StartsWith("lep");
+
+            WordDictionary wd = new WordDictionary();
+            wd.AddWord("bad");
+            bool exist = wd.Search(".ad");
         }
     }
 }
