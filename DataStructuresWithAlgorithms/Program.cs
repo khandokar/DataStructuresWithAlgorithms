@@ -1,14 +1,12 @@
-﻿using Microsoft.VisualBasic;
+﻿using System.Collections.Generic;
+using System.Text;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using static DataStructuresWithAlgorithms.MySingleLinkedList;
+using System.Linq;
 
 namespace DataStructuresWithAlgorithms
 {
-  class Program
-  {
+    class Program
+    {
         static void Main(string[] args)
         {
             //int[] myNum = { 10, 7, 1, 8, 5, 6, 3, 9, 8, 2 };
@@ -222,7 +220,7 @@ namespace DataStructuresWithAlgorithms
             //MyArray marray = new MyArray();
             //int[] my = marray.ProductExceptSelf(mynum);
 
-            //string[] s = new string[] {"eat","tea","tan","ate","nat","bat"};
+            //string[] s = new string[] { "eat", "tea", "tan", "ate", "nat", "bat" };
             //var dd = marray.GroupAnagrams(s);
 
             //foreach(var a in dd)
@@ -241,11 +239,21 @@ namespace DataStructuresWithAlgorithms
 
             //bool b = marray.IsAnagram(s, t);
 
-            //MyArray marray = new MyArray();
+            MyArray marray = new MyArray();
             //int[] nums = new int[] { 1, 2, 3, 1 };
+            //int[] nums = new int[] { 1, 2, 3, 4 };
 
             //bool resutl = marray.ContainsDuplicate(nums);
 
+            //int[] nums = new int[] { 1, 1, 1, 2, 2, 3 };
+            //int[] d = marray.TopKFrequent(nums, 2);
+
+            //int[] nums = new int[] { 1, 2, 3, 4 };
+
+            //int[] array = marray.ProductExceptSelf(nums);
+
+            int[] nums = new int[] { 100, 4, 200, 1, 3, 2 };
+            int result = marray.LongestConsecutive(nums);
 
             /*
 
@@ -604,9 +612,17 @@ namespace DataStructuresWithAlgorithms
 
             //bool exist1 = t.StartsWith("lep");
 
-            WordDictionary wd = new WordDictionary();
-            wd.AddWord("bad");
-            bool exist = wd.Search(".ad");
+            //WordDictionary wd = new WordDictionary();
+            // wd.AddWord("bad");
+            // bool exist = wd.Search(".ad");
+
+            // Create the link list.
+
+            Console.ReadLine();
         }
+
+     
+
     }
+
 }
