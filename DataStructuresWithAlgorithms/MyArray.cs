@@ -249,6 +249,30 @@ namespace DataStructuresWithAlgorithms
             throw new Exception("No Found");
         }
 
+        //Two Sum II - Input Array Is Sorted
+        public int[] TwoSumInSortedArray(int[] numbers, int target)
+        {
+            int firstIndex = 0;
+            int lastIndex = numbers.Length - 1;
+
+            while(firstIndex < lastIndex)
+            {
+                if (numbers[firstIndex] + numbers[lastIndex] > target)
+                {
+                    lastIndex--;
+                }
+                else if(numbers[firstIndex] + numbers[lastIndex] < target)
+                {
+                    firstIndex++;
+                }
+                else
+                {
+                    return new int[] { firstIndex + 1, lastIndex + 1 };
+                }
+            }
+            return new int[0];
+        }
+
         /// <summary>
         /// Time Complexity is O(n)
         /// </summary>
@@ -303,92 +327,96 @@ namespace DataStructuresWithAlgorithms
             return result;
         }
 
-        public IList<List<int>> ThreeSum(int[] nums)
+        public IList<IList<int>> ThreeSum(int[] nums)
         {
-            List<List<int>> triplets = new List<List<int>>();
+            List<IList<int>> res = new List<IList<int>>();
 
+            int left, right;
             Array.Sort(nums);
 
             for (int i = 0; i < nums.Length; i++)
             {
+                //Igo
                 if (i > 0 && nums[i] == nums[i - 1])
-                    continue;
-
-                int j = i + 1;
-                int k = nums.Length - 1;
-
-                while (j < k)
                 {
-                    if (nums[i] + nums[j] + nums[k] == 0)
-                    {
-                        triplets.Add(new List<int>() { nums[i], nums[j], nums[k] });
-                        j++;
+                    continue;
+                }
 
-                        if (j < k && nums[j] == nums[j - 1])
-                        {
-                            j++;
-                        }
-                    }
-                    else if (nums[i] + nums[j] + nums[k] < 0)
+                left = i + 1;
+                right = nums.Length - 1;
+
+                while (left < right)
+                {
+                    if (nums[i] + nums[left] + nums[right] > 0)
                     {
-                        j++;
+                        right--;
+                    }
+                    else if (nums[i] + nums[left] + nums[right] < 0)
+                    {
+                        left++;
                     }
                     else
                     {
-                        k--;
+                        res.Add(new List<int> { nums[i], nums[left], nums[right] });
+                        left++;
+                        while (nums[left] == nums[left - 1] && left < right)
+                        {
+                            left++;
+                        }
                     }
                 }
             }
-
-            return triplets;
+            return res;
         }
 
         public int MaxArea(int[] height)
         {
-            int initialPointer = 0;
-            int lastPointer = height.Length - 1;
-            int maxArea = 0;
-            while (initialPointer < lastPointer)
+            int res = 0, area = 0, left = 0, right = height.Length - 1;
+
+            while (left < right)
             {
-                if (height[initialPointer] < height[lastPointer])
+
+                area = (Math.Min(height[left], height[right])) * (right - left);
+                res = Math.Max(area, res);
+
+                if (height[left] < height[right])
                 {
-                    maxArea = Math.Max(maxArea, (lastPointer - initialPointer) * height[initialPointer]);
-                    initialPointer++;
+                    left++;
                 }
                 else
                 {
-                    maxArea = Math.Max(maxArea, (lastPointer - initialPointer) * height[lastPointer]);
-                    lastPointer--;
+                    right--;
                 }
-            }
 
-            return maxArea;
+            }
+            return res;
         }
 
         public bool IsPalindrome(string s)
         {
-            string newString = string.Empty;
-            foreach (char c in s)
+            int left = 0;
+            int right = s.Length - 1;
+
+            while (left < right)
             {
-                if (char.IsLetter(c) || char.IsNumber(c))
+                if (!char.IsLetterOrDigit(s[left]))
                 {
-                    newString += char.ToLower(c);
+                    left++;
+                }
+                else if (!char.IsLetterOrDigit(s[right]))
+                {
+                    right--;
+                }
+                else
+                {
+                    if (char.ToLower(s[left]) != char.ToLower(s[right]))
+                    {
+                        return false;
+                    }
+                    left++;
+                    right--;
                 }
             }
-
-            int initialPointer = 0;
-            int lastPointer = newString.Length - 1;
-
-            while (initialPointer <= lastPointer)
-            {
-                if (newString[initialPointer] != newString[lastPointer])
-                {
-                    return false;
-                }
-                initialPointer++;
-                lastPointer--;
-            }
-
             return true;
         }
 
@@ -400,22 +428,16 @@ namespace DataStructuresWithAlgorithms
         /// <returns></returns>
         public int MaxProfit(int[] prices)
         {
-            int min_price = int.MaxValue;
-            int max_profit = 0;
+            int maxProfit = 0;
+            int minPrice = prices[0];
 
-            for (int i = 0; i < prices.Length; i++)
+            for (int i = 1; i < prices.Length; i++)
             {
-                if (prices[i] < min_price)
-                {
-                    min_price = prices[i];
-                }
-                else if (prices[i] - min_price > max_profit)
-                {
-                    max_profit = prices[i] - min_price;
-                }
+                int currPrice = prices[i];
+                minPrice = Math.Min(minPrice, currPrice);
+                maxProfit = Math.Max(maxProfit, currPrice - minPrice);
             }
-
-            return max_profit;
+            return maxProfit;
         }
 
         public int LengthOfLongestSubstring(string s)
@@ -443,28 +465,25 @@ namespace DataStructuresWithAlgorithms
 
         public int CharacterReplacement(string s, int k)
         {
-            int N = s.Length;
-            int[] char_counts = new int[26];
+            int left = 0, maxLength = 0;
+            int mostFrequentLetterCount = 0; // Count of most frequent letter in the window
+            int[] charCounts = new int[26]; // Counts per letter
 
-            int window_start = 0;
-            int max_length = 0;
-            int max_count = 0;
-
-            for (int window_end = 0; window_end < N; window_end++)
+            for (int right = 0; right < s.Length; right++)
             {
-                char_counts[s[window_end] - 'A']++;
-                int current_char_count = char_counts[s[window_end] - 'A'];
-                max_count = Math.Max(max_count, current_char_count);
+                charCounts[s[right] - 'A']++;
+                mostFrequentLetterCount = Math.Max(mostFrequentLetterCount, charCounts[s[right] - 'A']);
 
-                while (window_end - window_start - max_count + 1 > k)
-                {
-                    char_counts[s[window_start] - 'A']--;
-                    window_start++;
+                int lettersToChange = (right - left + 1) - mostFrequentLetterCount;
+                if (lettersToChange > k)
+                { // Window is invalid, decrease char count and move left pointer
+                    charCounts[s[left] - 'A']--;
+                    left++;
                 }
 
-                max_length = Math.Max(max_length, window_end - window_start + 1);
+                maxLength = Math.Max(maxLength, (right - left + 1));
             }
-            return max_length;
+            return maxLength;
         }
 
         public string MinWindow(string s, string t)

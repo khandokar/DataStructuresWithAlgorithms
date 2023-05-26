@@ -6,37 +6,31 @@ using System.Threading.Tasks;
 
 namespace DataStructuresWithAlgorithms
 {
-  public class MyString
-  {
-    public bool IsValid(string s)
+    public class MyString
     {
-      Stack<char> stack = new Stack<char>();
-      Dictionary<char, char> oepntoclose = new Dictionary<char, char>
-      {
-        { ')', '(' },
-        { ']', '[' },
-        { '}', '{' }
-      };
+        public bool IsValid(string s)
+        {
+            var stack = new Stack<char>();
+            var pairs = new Dictionary<char, char>()
+            {
+                [')'] = '(',
+                [']'] = '[',
+                ['}'] = '{'
+            };
 
-      foreach (char c in s)
-      {
-        if (oepntoclose.ContainsKey(c))
-        {
-          if (stack.Count> 0 && stack.Peek() == oepntoclose[c])
-          {
-            stack.Pop();
-          }
-          else
-          {
-            return false;
-          }
+            foreach (char c in s)
+            {
+                if (!pairs.ContainsKey(c))
+                {
+                    stack.Push(c);
+                }
+                else if (stack.Count == 0 || stack.Pop() != pairs[c])
+                {
+                    return false;
+                }
+            }
+
+            return stack.Count == 0;
         }
-        else
-        {
-          stack.Push(c);
-        }
-      }
-      return stack.Count > 0 ? false : true;
     }
-  }
 }
