@@ -2,6 +2,7 @@
 using System.Text;
 using System;
 using System.Linq;
+using static DataStructuresWithAlgorithms.MySingleLinkedList;
 
 namespace DataStructuresWithAlgorithms
 {
@@ -27,13 +28,13 @@ namespace DataStructuresWithAlgorithms
             //foreach(int a in arr)
             //Console.Write(a +" ");
 
-            MySingleLinkedList msllist = new MySingleLinkedList();
-            msllist.Insert(3);
-            msllist.Insert(2);
-            msllist.Insert(0);
-            msllist.Insert(-4);
-            msllist.MakeCycle(1);
-            bool hasCycle = msllist.HasCycle();
+            //MySingleLinkedList msllist = new MySingleLinkedList();
+            //msllist.Insert(3);
+            //msllist.Insert(2);
+            //msllist.Insert(0);
+            //msllist.Insert(-4);
+            //msllist.MakeCycle(1);
+            //bool hasCycle = msllist.HasCycle();
             //Node node = msllist.DetectCycle();
             //Console.WriteLine(node == null ? "" : node.data);
 
@@ -228,7 +229,7 @@ namespace DataStructuresWithAlgorithms
             //  Console.WriteLine(a.ToString());
             //}
 
-           // MyArray marray = new MyArray();
+            // MyArray marray = new MyArray();
             //int[] mynum = new int[] { 2, 7, 11, 15 };
             //int target = 9;
             //int[] result = marray.TwoSum(mynum, target);
@@ -319,19 +320,19 @@ namespace DataStructuresWithAlgorithms
             //String s = " ";
             //bool isPalindrome = marray.IsPalindrome(s);
             //Console.Write(isPalindrome);
-           
 
-            
-             //* https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
-             //* Sliding Window
+
+
+            //* https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+            //* Sliding Window
             //MyArray marray = new MyArray();
             //int[] arry = { 7, 1, 5, 3, 6, 4 };
             //int[] arry = { 7, 6, 4, 3, 1 };
             //int maxProfit = marray.MaxProfit(arry);
             //Console.WriteLine(maxProfit);
-            
 
-            
+
+
             //* https://leetcode.com/problems/longest-substring-without-repeating-characters/
             //* Sliding Window
             //MyArray marray = new MyArray();
@@ -340,10 +341,10 @@ namespace DataStructuresWithAlgorithms
             //String s = "pwwkew";
             //int length = marray.LengthOfLongestSubstring(s);
             //Console.WriteLine(length);
-            
 
 
-            
+
+
             // https://leetcode.com/problems/longest-repeating-character-replacement/
             //MyArray marray = new MyArray();
             //string s = "ABAB";
@@ -365,7 +366,7 @@ namespace DataStructuresWithAlgorithms
             Console.WriteLine(min);
             */
 
-       
+
             // * https://leetcode.com/problems/valid-parentheses/
             // * 20. Valid Parentheses
             //MyString mystring = new MyString();
@@ -373,7 +374,7 @@ namespace DataStructuresWithAlgorithms
             //string s = "]{[]})";
             //string s = "((";
             //bool valid = mystring.IsValid(s);
-   
+
 
 
             /*
@@ -624,7 +625,39 @@ namespace DataStructuresWithAlgorithms
 
             // Create the link list.
 
+            //MySingleLinkedList msllist = new MySingleLinkedList();
+            //msllist.Insert(3);
+            //msllist.Insert(2);
+            //msllist.Insert(0);
+            //msllist.Insert(-4);
+            //msllist.MakeCycle(1);
+
+            MySingleLinkedList msllist = new MySingleLinkedList();
+            msllist.Insert(1);
+            msllist.Insert(2);
+            msllist.MakeCycle(0);
+
+            bool b = HasCycle(msllist.Head);
+
             Console.ReadLine();
+        }
+
+        static bool HasCycle(Node head)
+        {
+            if (head == null) return false;
+
+            Node first= head;
+            Node second = head.next;
+
+            while(second.next != null && second.next.next != null)
+            {
+                if(first == second) return true;
+
+                first = first.next;
+                second = second.next.next;
+            }
+            
+            return false;
         }
 
     }
