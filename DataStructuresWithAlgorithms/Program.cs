@@ -649,36 +649,46 @@ namespace DataStructuresWithAlgorithms
 
             //LongestStrChain(arr);
 
-            int[] a = new int[] { 1, 3, 4, 2, 2 };
-            floydAlgorithm(a);
+            //int[] a = new int[] { 1, 3, 4, 2, 2 };
+            //floydAlgorithm(a);
+
+            Trie trie = new Trie();
+            trie.Insert("and");
+            trie.Insert("ant");
+
+            bool b = trie.Search("and");
+
+            bool c = trie.StartsWith("an");
+
+            bool d = trie.StartsWith("t");
 
             Console.ReadLine();
         }
 
-        private static int floydAlgorithm(int[] nums)
-        {
-            int slow = 0, fast = 0;
+        //private static int floydAlgorithm(int[] nums)
+        //{
+        //    int slow = 0, fast = 0;
 
-            while (true)
-            {
-                slow = nums[slow];
-                fast = nums[nums[fast]];
-                if (slow == fast)
-                    break;
-            }
+        //    while (true)
+        //    {
+        //        slow = nums[slow];
+        //        fast = nums[nums[fast]];
+        //        if (slow == fast)
+        //            break;
+        //    }
 
-            var slow2 = 0;
+        //    var slow2 = 0;
 
-            while (true)
-            {
-                slow = nums[slow];
-                slow2 = nums[slow2];
-                if (slow == slow2)
-                    return slow;
-            }
+        //    while (true)
+        //    {
+        //        slow = nums[slow];
+        //        slow2 = nums[slow2];
+        //        if (slow == slow2)
+        //            return slow;
+        //    }
 
-            return 0;
-        }
+        //    return 0;
+        //}
 
     }
 
