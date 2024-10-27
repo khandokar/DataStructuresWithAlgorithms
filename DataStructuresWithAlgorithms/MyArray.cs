@@ -440,6 +440,43 @@ namespace DataStructuresWithAlgorithms
             return maxProfit;
         }
 
+        //https://leetcode.com/problems/longest-string-chain/
+        public int LongestStrChain(string[] words)
+        {
+            if (words.Length <= 1)
+                return words.Length;
+
+            int strLength = 1;
+
+            bool found = false;
+
+            Array.Sort(words, (x, y) => x.Length.CompareTo(y.Length));
+
+            Dictionary<string, int> keyValuePairs = new Dictionary<string, int>();
+
+            foreach (string word in words)
+            {
+                found = false;
+                for (int i = 0; i < word.Length; i++)
+                {
+                    var partWord = word.Remove(i, 1);
+
+                    if (keyValuePairs.TryGetValue(partWord, out int value))
+                    {
+                        keyValuePairs.Add(word, value + 1);
+                        strLength = Math.Max(strLength, value + 1);
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found)
+                {
+                    keyValuePairs.Add(word, 1);
+                }
+            }
+
+            return strLength;
+        }
         public int LengthOfLongestSubstring(string s)
         {
             HashSet<string> set = new HashSet<string>();

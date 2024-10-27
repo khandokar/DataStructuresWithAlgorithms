@@ -323,6 +323,7 @@ namespace DataStructuresWithAlgorithms
             Node slow = head;
             Node fast = head;
 
+            //Divided the linked list in 2 parts
             while (fast != null && fast.next != null)
             {
                 pre = slow;
@@ -333,6 +334,7 @@ namespace DataStructuresWithAlgorithms
             pre.next = null;
             pre = null;
 
+            // Reverse the last linked list
             while (slow != null)
             {
                 Node next = slow.next;
@@ -342,6 +344,7 @@ namespace DataStructuresWithAlgorithms
             }
             slow = pre;
 
+            //Merge the list
             Node dumy = new Node(-1);
             Node currentNode = dumy;
 

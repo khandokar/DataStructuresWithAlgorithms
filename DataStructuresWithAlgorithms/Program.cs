@@ -3,6 +3,7 @@ using System.Text;
 using System;
 using System.Linq;
 using static DataStructuresWithAlgorithms.MySingleLinkedList;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DataStructuresWithAlgorithms
 {
@@ -124,6 +125,7 @@ namespace DataStructuresWithAlgorithms
             //msllist2.Insert(3);
             //msllist2.Insert(4);
             //msllist2.Insert(5);
+
 
             //msllist2.ReverseList();
             //msllist2.Show();
@@ -632,32 +634,50 @@ namespace DataStructuresWithAlgorithms
             //msllist.Insert(-4);
             //msllist.MakeCycle(1);
 
-            MySingleLinkedList msllist = new MySingleLinkedList();
-            msllist.Insert(1);
-            msllist.Insert(2);
-            msllist.MakeCycle(0);
+            //MySingleLinkedList msllist = new MySingleLinkedList();
+            //msllist.Insert(1);
+            //msllist.Insert(2);
+            //msllist.MakeCycle(0);
 
-            bool b = HasCycle(msllist.Head);
+            //bool b = HasCycle(msllist.Head);
+
+            //string[] arr = new string[] { "xbc", "pcxbcf", "xb", "cxbc", "pcxbc" };
+
+            //string[] arr = new string[] { "a", "b", "ba", "bca", "bda", "bdca" };
+
+            //string[] arr = new string[] { "abcd", "dbqca" };
+
+            //LongestStrChain(arr);
+
+            int[] a = new int[] { 1, 3, 4, 2, 2 };
+            floydAlgorithm(a);
 
             Console.ReadLine();
         }
 
-        static bool HasCycle(Node head)
+        private static int floydAlgorithm(int[] nums)
         {
-            if (head == null) return false;
+            int slow = 0, fast = 0;
 
-            Node first= head;
-            Node second = head.next;
-
-            while(second.next != null && second.next.next != null)
+            while (true)
             {
-                if(first == second) return true;
-
-                first = first.next;
-                second = second.next.next;
+                slow = nums[slow];
+                fast = nums[nums[fast]];
+                if (slow == fast)
+                    break;
             }
-            
-            return false;
+
+            var slow2 = 0;
+
+            while (true)
+            {
+                slow = nums[slow];
+                slow2 = nums[slow2];
+                if (slow == slow2)
+                    return slow;
+            }
+
+            return 0;
         }
 
     }
