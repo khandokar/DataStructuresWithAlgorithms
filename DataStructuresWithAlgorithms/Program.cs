@@ -652,15 +652,38 @@ namespace DataStructuresWithAlgorithms
             //int[] a = new int[] { 1, 3, 4, 2, 2 };
             //floydAlgorithm(a);
 
-            Trie trie = new Trie();
-            trie.Insert("and");
-            trie.Insert("ant");
+            //Trie trie = new Trie();
+            //trie.Insert("and");
+            //trie.Insert("ant");
 
-            bool b = trie.Search("and");
+            //trie.Insert("dog");
+            //trie.Search("dog");    // return true
+            //trie.Search("do");     // return false
+            //trie.StartsWith("do"); // return true
+            //trie.Insert("do");
+            //trie.Search("do");     // return true
 
-            bool c = trie.StartsWith("an");
+            // Create an example Trie
+            //Trie2 trie2 = new Trie2();
+            //TrieNode2 root = new TrieNode2();
+            //List<string> arr = new List<string> { "and", "ant", "do", "geek", "dad", "ball" };
+            //List<string> arr = new List<string> { "and", "andt" };
+            //foreach (string s in arr)
+            //{
+            //    trie2.InsertKey(root, s);
+            //}
 
-            bool d = trie.StartsWith("t");
+            //// One by one search strings
+            //List<string> searchKeys =
+            //     new List<string> { "do", "gee", "bat" };
+            //foreach (string s in searchKeys)
+            //{
+            //    Console.WriteLine("Key : " + s);
+            //    if (trie2.SearchKey(root, s))
+            //        Console.WriteLine("Present");
+            //    else
+            //        Console.WriteLine("Not Present");
+            //}
 
             Console.ReadLine();
         }

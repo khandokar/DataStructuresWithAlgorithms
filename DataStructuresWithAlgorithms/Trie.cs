@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataStructuresWithAlgorithms
 {
+    /// <summary>
+    /// https://neetcode.io/problems/implement-prefix-tree
+    /// https://www.youtube.com/watch?v=oobqoCJlHA0
+    /// </summary>
     public class Trie
     {
         private TrieNode root;
