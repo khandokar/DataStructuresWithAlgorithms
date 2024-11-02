@@ -622,8 +622,13 @@ namespace DataStructuresWithAlgorithms
             //bool exist1 = t.StartsWith("lep");
 
             //WordDictionary wd = new WordDictionary();
-            // wd.AddWord("bad");
-            // bool exist = wd.Search(".ad");
+            //wd.AddWord("day");
+            //wd.AddWord("bay");
+            //wd.AddWord("may");
+            //wd.Search("say"); // return false
+            //wd.Search("day"); // return true
+            //wd.Search(".ay"); // return true
+            //wd.Search("b.."); // return true
 
             // Create the link list.
 
@@ -684,6 +689,8 @@ namespace DataStructuresWithAlgorithms
             //    else
             //        Console.WriteLine("Not Present");
             //}
+
+
 
             Console.ReadLine();
         }
